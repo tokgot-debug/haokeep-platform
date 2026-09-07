@@ -272,17 +272,14 @@ window.HaoKeepApp = {
             }
         }
 
-        // Update Header Login Button status
-        const authBtnLabel = document.getElementById('auth-btn-label');
-        const authBtn = document.getElementById('header-btn-login');
-        if (authBtnLabel && authBtn) {
+        // Update Persona Select Dropdown state
+        const personaSelectEl = document.getElementById('persona-select');
+        if (personaSelectEl) {
             const user = window.HaoKeepAuth?.currentUser;
             if (user) {
-                authBtnLabel.innerHTML = `<strong>${user.avatar}</strong> (${user.name.split(' ')[0]})`;
-                authBtn.className = 'btn btn-primary btn-sm flex align-center gap-1';
+                personaSelectEl.value = user.persona;
             } else {
-                authBtnLabel.innerText = 'Log In';
-                authBtn.className = 'btn btn-secondary btn-sm flex align-center gap-1';
+                personaSelectEl.value = store.context.persona || '';
             }
         }
 

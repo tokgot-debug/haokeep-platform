@@ -78,39 +78,34 @@
             <div class="control-group">
                 <i data-lucide="languages" class="ctrl-icon"></i>
                 <select id="lang-selector" class="select-sm">
-                    <option value="en" selected>English</option>
-                    <option value="sw">Kiswahili</option>
+                    <option value="en" selected>EN</option>
+                    <option value="sw">SW</option>
                 </select>
             </div>
 
-            <!-- Sign In / Persona Level Access Dropdown -->
-            <div class="persona-switcher-box" style="display:flex; align-center; gap:6px;">
-                <label for="persona-select" class="text-xs text-dim font-bold">Sign In / Role Access:</label>
-                <select id="persona-select" class="select-persona" style="background: linear-gradient(135deg, rgba(224,159,62,0.18), rgba(184,128,84,0.28)); border: 1px solid rgba(224,159,62,0.5); color: #f4dbab; border-radius: 6px; padding: 6px 12px; font-weight: 600; cursor: pointer;">
-                    <option value="" disabled selected>🔑 Select Role to Sign In...</option>
+            <!-- Role Access / Sign In Dropdown -->
+            <div class="control-group" style="border: 1px solid rgba(224,159,62,0.4); background: linear-gradient(135deg, rgba(224,159,62,0.12), rgba(184,128,84,0.18)); padding: 0.25rem 0.5rem;">
+                <i data-lucide="lock" style="width:14px; height:14px; color:#e09f3e;"></i>
+                <select id="persona-select" class="select-sm font-bold" style="color:#f4dbab; cursor:pointer;">
+                    <option value="" disabled selected>🔑 Role Sign In...</option>
                     <option value="landing">🚀 Landing Overview</option>
-                    <option value="housekeeper">📱 Housekeeper Access</option>
-                    <option value="owner">🏠 Property Owner Access</option>
-                    <option value="agency">🏢 Cleaning Agency Access</option>
-                    <option value="finance">💳 Finance & eTIMS Access</option>
-                    <option value="admin">🛡️ Platform Admin Access</option>
+                    <option value="housekeeper">📱 Housekeeper</option>
+                    <option value="owner">🏠 Property Owner</option>
+                    <option value="agency">🏢 Cleaning Agency</option>
+                    <option value="finance">💳 Finance & eTIMS</option>
+                    <option value="admin">🛡️ Platform Admin</option>
                 </select>
             </div>
 
             <!-- Notification Center Bell Button -->
-            <button id="notif-center-btn" class="btn-icon-relative btn-icon" title="View Real-Time Alerts & Notifications">
+            <button id="notif-center-btn" class="btn-icon-relative btn-icon" title="View Alerts">
                 <i data-lucide="bell"></i>
                 <span id="notif-badge-count" class="notif-badge">2</span>
             </button>
 
-            <!-- Auth Log In / User Badge -->
-            <button id="header-btn-login" class="btn btn-secondary btn-sm flex align-center gap-1" style="background: linear-gradient(135deg, rgba(224,159,62,0.15), rgba(184,128,84,0.25)); border: 1px solid rgba(224,159,62,0.4); color: #f4dbab;">
-                <i data-lucide="lock"></i> <span id="auth-btn-label">Log In</span>
-            </button>
-
             <!-- Register / Onboard Header Button -->
             <button id="header-btn-register" class="btn btn-secondary btn-sm flex align-center gap-1">
-                <i data-lucide="user-check"></i> Register Account
+                <i data-lucide="user-check"></i> Register
             </button>
 
             <!-- Subscription Upgrade Header Button -->
