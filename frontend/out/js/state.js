@@ -112,6 +112,18 @@ window.HaoKeepStore = {
             currentLocation: { lat: -1.2690, lng: 36.8050 },
             status: 'AVAILABLE',
             assignedTerritory: 'Nairobi Central / Westlands'
+        },
+        {
+            id: 'CLN-003',
+            name: 'Guardian Angel',
+            phone: '+254700778899',
+            mpesaNumber: '254700778899',
+            rating: 5.0,
+            totalJobs: 34,
+            qualityScore: 99,
+            currentLocation: { lat: -1.2850, lng: 36.8200 },
+            status: 'AVAILABLE',
+            assignedTerritory: 'Nairobi West / Kilimani'
         }
     ],
 
