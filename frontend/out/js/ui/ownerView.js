@@ -53,7 +53,9 @@ window.HaoKeepOwnerView = {
                             </div>
 
                             <div class="mt-3 flex-between text-xs">
-                                <span class="text-muted">iCal Sync: Active</span>
+                                <button class="btn btn-xs btn-primary btn-assign-duty" data-unit="${unit.id}" data-unitname="${unit.name}" style="background: linear-gradient(135deg, #e09f3e, #b88054) !important; color:#0a0806 !important; font-weight:700;">
+                                    <i data-lucide="user-check"></i> Assign Duty
+                                </button>
                                 <a href="#" class="text-primary btn-view-photos" data-unit="${unit.id}">View Quality Photos &rarr;</a>
                             </div>
                         </div>
@@ -231,6 +233,87 @@ window.HaoKeepOwnerView = {
 
     bindEvents(container) {
         const store = window.HaoKeepStore;
+
+        // Assign Housekeeper Duty Modal Trigger
+        container.querySelectorAll('.btn-assign-duty').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const unitId = e.currentTarget.dataset.unit;
+                const unitName = e.currentTarget.dataset.unitname;
+                
+                const assignModalContent = `
+                    <div class="p-2">
+                        <h4 class="font-bold text-lg text-primary mb-1">Assign Housekeeper Duty</h4>
+                        <p class="text-xs text-muted mb-3">Select a housekeeper to dispatch for <strong>${unitName}</strong></p>
+                        
+                        <div class="form-group mb-3">
+                            <label class="font-bold text-xs">Select Housekeeper *</label>
+                            <select id="assign-cleaner-select" class="form-input bg-darker" style="padding:10px;">
+                                ${store.cleaners.map(c => `
+                                    <option value="${c.id}" ${c.name.includes('Guardian') ? 'selected' : ''}>
+                                        ${c.name} (${c.assignedTerritory || 'Kilimani'}) — ⭐ ${c.rating || 5.0} (${c.status})
+                                    </option>
+                                `).join('')}
+                            </select>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label class="font-bold text-xs">Scheduled Turnover Window</label>
+                            <input type="text" id="assign-window-input" class="form-input bg-darker" value="11:00 - 15:00" placeholder="e.g. 11:00 - 15:00">
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label class="font-bold text-xs">Housekeeper Payout Rate (KES)</label>
+                            <input type="number" id="assign-payout-input" class="form-input bg-darker" value="2500">
+                        </div>
+
+                        <button id="btn-confirm-assign-duty" class="btn btn-primary btn-block p-3 font-bold" style="background: linear-gradient(135deg, #e09f3e, #b88054) !important; color:#0a0806 !important;">
+                            <i data-lucide="check-circle"></i> Confirm Duty Assignment
+                        </button>
+                    </div>
+                `;
+
+                window.HaoKeepApp?.showModal(`Assign Duty: ${unitName}`, assignModalContent);
+
+                document.getElementById('btn-confirm-assign-duty')?.addEventListener('click', () => {
+                    const cleanerId = document.getElementById('assign-cleaner-select')?.value;
+                    const cleaner = store.cleaners.find(c => c.id === cleanerId) || store.cleaners[0];
+                    const payout = parseInt(document.getElementById('assign-payout-input')?.value, 10) || 2500;
+                    const windowTime = document.getElementById('assign-window-input')?.value || '11:00 - 15:00';
+
+                    // Update unit status to dirty / assigned
+                    const unit = store.units.find(u => u.id === unitId);
+                    if (unit) unit.status = 'DIRTY';
+
+                    // Create assigned job
+                    const newJob = {
+                        id: 'JOB-' + Date.now().toString().substring(7),
+                        unitId: unitId,
+                        unitName: unitName,
+                        cleanerId: cleaner.id,
+                        cleanerName: cleaner.name,
+                        scheduledDate: new Date().toISOString().substring(0, 10),
+                        windowStart: windowTime.split('-')[0]?.trim() || '11:00',
+                        windowEnd: windowTime.split('-')[1]?.trim() || '15:00',
+                        payoutAmount: payout,
+                        status: 'ASSIGNED',
+                        geofenceVerified: false,
+                        checklist: [
+                            { room: 'Living Room', task: 'Make sofa bed & fluff cushions', photoRequired: true, completed: false },
+                            { room: 'Master Bedroom', task: 'Change linen & hotel hospital corners', photoRequired: true, completed: false },
+                            { room: 'Bathroom', task: 'Disinfect tiles & restock amenities', photoRequired: true, completed: false }
+                        ]
+                    };
+
+                    store.jobs.unshift(newJob);
+                    cleaner.status = 'ASSIGNED';
+
+                    window.HaoKeepApp?.showToast(`📋 Duty successfully assigned to ${cleaner.name} for ${unitName}!`, 'success');
+                    window.HaoKeepApp?.addAuditLog(`Job Assigned: ${newJob.id} to ${cleaner.name} for ${unitName}`);
+                    window.HaoKeepApp?.closeModal();
+                    window.HaoKeepApp?.renderActiveView();
+                });
+            });
+        });
 
         container.querySelector('#btn-trigger-ical')?.addEventListener('click', () => {
             const newJob = window.HaoKeepDispatch.ingestICalFeed('UNIT-101');
