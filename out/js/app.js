@@ -50,6 +50,14 @@ window.HaoKeepApp = {
             });
         });
 
+        // AI Assist Intelligence Sidebar Click
+        document.querySelectorAll('[data-action="ai-assist"]').forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.HaoKeepAI?.openAiAssistModal();
+            });
+        });
+
         // Role Access / Sign In Dropdown
         const personaSelect = document.getElementById('persona-select');
         if (personaSelect) {
