@@ -14,9 +14,6 @@ window.HaoKeepOwnerView = {
                         <p class="subtitle">${isSwahili ? 'Hali halisi ya usafi wa nyumba, usawazishaji wa iCal, na uthibitisho wa picha' : 'Real-time property readiness, iCal turnovers, and inspection photo verification'}</p>
                     </div>
                     <div class="flex-gap">
-                        <button id="btn-open-ai-assist" class="btn btn-primary" style="background: #ffffff !important; color:#0a0806 !important; border: 2px solid #0052cc !important; font-weight:800; box-shadow: 0 4px 12px rgba(0, 82, 204, 0.15);">
-                            <i data-lucide="sparkles" style="color: #0052cc;"></i> ${isSwahili ? 'Msaada wa AI Assist' : 'AI Assist'}
-                        </button>
                         <button id="btn-batch-dispatch" class="btn btn-primary" style="background: linear-gradient(135deg, #e09f3e, #b88054) !important; color:#0a0806 !important;">
                             <i data-lucide="zap"></i> ${isSwahili ? 'Tuma Wafanyakazi Nyumba Zote Chafu kwa Mbofyo 1' : '1-Click Batch Dispatch All Dirty Units'}
                         </button>
@@ -311,10 +308,6 @@ window.HaoKeepOwnerView = {
                     window.HaoKeepApp?.renderActiveView();
                 });
             });
-        });
-
-        container.querySelector('#btn-open-ai-assist')?.addEventListener('click', () => {
-            window.HaoKeepAI?.openAiAssistModal();
         });
 
         container.querySelector('#btn-trigger-ical')?.addEventListener('click', () => {
