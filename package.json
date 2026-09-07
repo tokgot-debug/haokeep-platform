@@ -1,0 +1,17 @@
+{
+  "name": "vanbransa-cleanpulse-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Vanbransa CleanPulse Monorepo Architecture (Next.js Frontend + Firebase Cloud Functions Backend)",
+  "scripts": {
+    "dev": "npm --prefix frontend run dev",
+    "build": "npm --prefix frontend run build && npm --prefix backend/functions run build",
+    "start": "npm --prefix frontend run start",
+    "emulators": "firebase emulators:start",
+    "deploy": "firebase deploy"
+  },
+  "workspaces": [
+    "frontend",
+    "backend/functions"
+  ]
+}

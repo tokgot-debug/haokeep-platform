@@ -1,0 +1,42 @@
+{
+    "name": "CleanPulse — Housekeeping & Turnover Operations",
+    "short_name": "CleanPulse",
+    "description": "Enterprise-grade housekeeping, turnover dispatch, eTIMS compliance, and multi-rail payment operations platform for short-let rental hosts, agencies, and field cleaners.",
+    "start_url": "./index.html",
+    "display": "standalone",
+    "orientation": "any",
+    "background_color": "#0a0806",
+    "theme_color": "#d4a373",
+    "scope": "./",
+    "lang": "en",
+    "categories": ["business", "productivity", "utilities"],
+    "icons": [
+        {
+            "src": "assets/cleanpulse_icon.jpg",
+            "sizes": "512x512",
+            "type": "image/jpeg",
+            "purpose": "any maskable"
+        }
+    ],
+    "screenshots": [],
+    "shortcuts": [
+        {
+            "name": "Housekeeper Field App",
+            "short_name": "Field App",
+            "url": "/index.html?persona=housekeeper",
+            "icons": []
+        },
+        {
+            "name": "Owner Dashboard",
+            "short_name": "Owner",
+            "url": "/index.html?persona=owner",
+            "icons": []
+        },
+        {
+            "name": "Finance & eTIMS",
+            "short_name": "Finance",
+            "url": "/index.html?persona=finance",
+            "icons": []
+        }
+    ]
+}

@@ -1,0 +1,390 @@
+/* Mobile Field App Specific High-Contrast Styles - Warm Luxury Palette */
+
+.mobile-frame-container {
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem;
+    width: 100%;
+}
+
+.mobile-shell {
+    width: 100%;
+    max-width: 960px;
+    background: #140f0b;
+    border: 2px solid rgba(212, 163, 115, 0.3);
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+    color: #fcf8f2;
+}
+
+/* 2-Column Responsive Housekeeper Grid Layout */
+.hk-two-column-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    padding: 0.5rem;
+}
+
+.hk-col-left, .hk-col-right {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.hk-two-column-grid .mobile-card {
+    margin: 0.25rem 0;
+}
+
+@media (max-width: 768px) {
+    .hk-two-column-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .mobile-frame-container {
+        padding: 0;
+    }
+    
+    .mobile-shell {
+        border-radius: 0;
+        border: none;
+        max-width: 100%;
+    }
+}
+
+.mobile-header {
+    background: #1c150f;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(212, 163, 115, 0.15);
+}
+
+.btn-whatsapp {
+    background: #25D366 !important;
+    color: #0a0806 !important;
+    font-size: 0.775rem !important;
+    font-weight: 700 !important;
+    padding: 0.35rem 0.75rem !important;
+    border-radius: 6px !important;
+    border: none !important;
+    box-shadow: 0 2px 8px rgba(37, 211, 102, 0.3) !important;
+}
+
+.btn-whatsapp:hover {
+    background: #1ebe57 !important;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.45) !important;
+}
+
+.btn-share-multi {
+    background: rgba(60, 48, 36, 0.9) !important;
+    color: #fcf8f2 !important;
+    border: 1px solid rgba(212, 163, 115, 0.3) !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4) !important;
+}
+
+.btn-share-multi:hover {
+    background: rgba(90, 72, 54, 0.95) !important;
+    border-color: rgba(212, 163, 115, 0.6) !important;
+}
+
+.cleaner-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.avatar-sm {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #d4a373, #8c5e34);
+    color: #0a0806;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.mobile-card {
+    background: rgba(32, 24, 18, 0.85);
+    border-radius: 16px;
+    margin: 1rem;
+    padding: 1.2rem;
+    border: 1px solid rgba(212, 163, 115, 0.15);
+}
+
+.mobile-card.highlight {
+    background: linear-gradient(135deg, rgba(60, 42, 28, 0.8) 0%, rgba(32, 24, 18, 0.9) 100%);
+    border-color: rgba(212, 163, 115, 0.4);
+}
+
+.pay-tag {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #d4a373;
+}
+
+.unit-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #fcf8f2;
+}
+
+.unit-sub {
+    font-size: 0.8rem;
+    color: #d4c5b5;
+}
+
+.card-title-sm {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #d4a373;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.geofence-success {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: rgba(88, 129, 87, 0.2);
+    border-radius: 12px;
+    border: 1px solid rgba(88, 129, 87, 0.4);
+}
+
+.lockbox-box {
+    background: #100b08;
+    padding: 0.85rem;
+    border-radius: 12px;
+    text-center;
+    border: 1px solid rgba(212, 163, 115, 0.25);
+}
+
+.lock-code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    color: #dda15e;
+}
+
+.checklist-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.check-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 0.75rem;
+    background: rgba(16, 12, 9, 0.7);
+    border-radius: 12px;
+    border: 1px solid rgba(212, 163, 115, 0.15);
+    gap: 0.4rem;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.check-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.room-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #d4a373;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+
+.task-desc {
+    font-size: 0.775rem;
+    color: #d4c5b5;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.check-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.3rem;
+    flex-shrink: 0;
+}
+
+.check-actions .btn,
+.check-actions .check-status-badge {
+    height: 32px !important;
+    line-height: 32px !important;
+    padding: 0 0.5rem !important;
+    font-size: 0.725rem !important;
+    font-weight: 700 !important;
+    border-radius: 8px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.25rem !important;
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
+}
+
+.check-actions .btn-share-multi {
+    width: 32px !important;
+    min-width: 32px !important;
+    padding: 0 !important;
+}
+
+.check-status-badge {
+    margin: 0 !important;
+    text-transform: uppercase;
+}
+
+.input-file-hidden, input[type="file"].hidden {
+    display: none !important;
+}
+
+/* Inventory Steppers & Consumables Counter */
+.inv-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.inv-item-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.65rem 0.85rem;
+    background: rgba(18, 14, 11, 0.8);
+    border: 1px solid rgba(212, 163, 115, 0.15);
+    border-radius: 10px;
+}
+
+.inv-stepper {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.btn-step {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    background: rgba(212, 163, 115, 0.15);
+    color: #fcf8f2;
+    border: 1px solid rgba(212, 163, 115, 0.3);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-step:hover {
+    background: rgba(212, 163, 115, 0.35);
+}
+
+.inv-count {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    font-size: 0.9rem;
+    min-width: 24px;
+    text-align: center;
+    color: #dda15e;
+}
+
+/* Voice Note Recording Waveform */
+.voice-rec-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background: rgba(230, 57, 70, 0.15);
+    border: 1px solid rgba(230, 57, 70, 0.3);
+    border-radius: 8px;
+    margin-top: 0.5rem;
+}
+
+.recording-pulse {
+    width: 10px;
+    height: 10px;
+    background: #e63946;
+    border-radius: 50%;
+    animation: pulseRed 1s infinite alternate;
+}
+
+@keyframes pulseRed {
+    0% { opacity: 0.4; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Digital Tip Jar Chips */
+.tip-chips-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+.tip-chip {
+    padding: 0.65rem;
+    background: rgba(212, 163, 115, 0.1);
+    border: 1px solid rgba(212, 163, 115, 0.3);
+    border-radius: 10px;
+    color: #dda15e;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tip-chip.active, .tip-chip:hover {
+    background: #dda15e;
+    color: #0a0806;
+    border-color: #dda15e;
+    box-shadow: 0 4px 12px rgba(221, 161, 94, 0.3);
+}
+
+/* Leaderboard Cards */
+.leaderboard-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    background: rgba(20, 15, 11, 0.85);
+    border: 1px solid rgba(212, 163, 115, 0.2);
+    border-radius: 12px;
+    margin-bottom: 0.5rem;
+}
+
+.rank-badge {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #dda15e, #bc6c25);
+    color: #0a0806;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+}

@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Vanbransa CleanPulse (HaoKeep) — Global Housekeeping & Turnover Operations Platform</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Qrious QR Code Generator for eTIMS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+
+    <!-- PWA Web Manifest & Mobile Head Tags -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1a1410">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Vanbransa CleanPulse">
+    <link rel="apple-touch-icon" href="assets/cleanpulse_icon.jpg">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/mobile.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+<body class="theme-dark">
+    <!-- Top Platform Header -->
+    <header class="app-header">
+        <div class="header-brand">
+            <div class="logo-icon">
+                <i data-lucide="sparkles"></i>
+            </div>
+            <div class="logo-text">
+                <span class="brand-name">Vanbransa CleanPulse <small class="v-tag">HaoKeep v0.1</small></span>
+                <span class="brand-sub">Housekeeping Operations & Compliance</span>
+            </div>
+        </div>
+
+        <!-- Global Context Controls -->
+        <div class="header-controls">
+            <!-- Offline/Online Status Badge -->
+            <button id="offline-toggle-btn" class="status-pill status-online" title="Toggle Simulated Network Connection">
+                <span class="status-dot"></span>
+                <span id="network-status-text">Online</span>
+                <i data-lucide="wifi"></i>
+            </button>
+
+            <!-- Market Selector -->
+            <div class="control-group">
+                <i data-lucide="globe" class="ctrl-icon"></i>
+                <select id="market-selector" class="select-sm">
+                    <option value="KE" selected>🇰🇪 Kenya (Nairobi, Mombasa, Diani)</option>
+                    <option value="US">🇺🇸 United States (Miami, LA, Austin)</option>
+                    <option value="UK">🇬🇧 United Kingdom (London, Edinburgh)</option>
+                    <option value="NG">🇳🇬 Nigeria (Lagos, Abuja)</option>
+                    <option value="ZA">🇿🇦 South Africa (Cape Town, JHB)</option>
+                </select>
+            </div>
+
+            <!-- Currency Selector -->
+            <div class="control-group">
+                <i data-lucide="coins" class="ctrl-icon"></i>
+                <select id="currency-selector" class="select-sm">
+                    <option value="KES" selected>KES (Shilling)</option>
+                    <option value="USD">USD ($)</option>
+                    <option value="EUR">EUR (€)</option>
+                    <option value="GBP">GBP (£)</option>
+                </select>
+            </div>
+
+            <!-- Language Selector -->
+            <div class="control-group">
+                <i data-lucide="languages" class="ctrl-icon"></i>
+                <select id="lang-selector" class="select-sm">
+                    <option value="en" selected>English</option>
+                    <option value="sw">Kiswahili</option>
+                </select>
+            </div>
+
+            <!-- Persona Switcher -->
+            <div class="persona-switcher-box">
+                <label for="persona-select">Persona View:</label>
+                <select id="persona-select" class="select-persona">
+                    <option value="landing">🚀 Landing Page & Overview</option>
+                    <option value="housekeeper" selected>📱 Housekeeper (Field Cleaner)</option>
+                    <option value="owner">🏠 Property Owner / Host</option>
+                    <option value="agency">🏢 Cleaning Agency Admin</option>
+                    <option value="finance">💳 Finance & eTIMS Manager</option>
+                    <option value="admin">🛡️ Platform Admin & Audit</option>
+                </select>
+            </div>
+
+            <!-- Notification Center Bell Button -->
+            <button id="notif-center-btn" class="btn-icon-relative btn-icon" title="View Real-Time Alerts & Notifications">
+                <i data-lucide="bell"></i>
+                <span id="notif-badge-count" class="notif-badge">2</span>
+            </button>
+
+            <!-- Register / Onboard Header Button -->
+            <button id="header-btn-register" class="btn btn-secondary btn-sm flex align-center gap-1">
+                <i data-lucide="user-check"></i> Register Account
+            </button>
+
+            <!-- Subscription Upgrade Header Button -->
+            <button id="header-btn-subscribe" class="btn btn-primary btn-sm flex align-center gap-1">
+                <i data-lucide="crown"></i> Subscribe
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Workspace Container -->
+    <main class="app-body">
+        
+        <!-- 0. Landing Page Surface -->
+        <section id="surface-landing" class="surface-view">
+            <!-- Dynamic Landing View Content -->
+        </section>
+
+        <!-- 1. Housekeeper Surface (Mobile App Simulation) -->
+        <section id="surface-housekeeper" class="surface-view active">
+            <div class="mobile-frame-container">
+                <div class="mobile-shell">
+                    <div class="mobile-header">
+                        <div class="cleaner-info">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&auto=format&fit=crop&q=80" alt="Avatar" class="avatar-sm">
+                            <div>
+                                <h3 id="cleaner-name-display">Wanjiku Njeri</h3>
+                                <span class="badge-score"><i data-lucide="star"></i> 4.95 (42 cleans)</span>
+                            </div>
+                        </div>
+                        <div class="mobile-actions">
+                            <button id="panic-btn" class="btn-panic" title="Emergency Safety Alert">
+                                <i data-lucide="shield-alert"></i> PANIC
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Sub-navigation Tabs -->
+                    <div class="mobile-tabs">
+                        <button class="m-tab-btn active" data-mtab="today"><i data-lucide="calendar"></i> Today</button>
+                        <button class="m-tab-btn" data-mtab="active-job"><i data-lucide="play-circle"></i> Active Job</button>
+                        <button class="m-tab-btn" data-mtab="earnings"><i data-lucide="wallet"></i> Pay & History</button>
+                    </div>
+
+                    <!-- Tab 1: Today Jobs View -->
+                    <div id="mtab-today" class="m-tab-content active">
+                        <div class="today-hero-card">
+                            <div class="hero-stats">
+                                <div>
+                                    <span class="stat-label" data-i18n="today_jobs">Today's Jobs</span>
+                                    <span class="stat-val" id="today-jobs-count">3 Jobs</span>
+                                </div>
+                                <div>
+                                    <span class="stat-label" data-i18n="expected_pay">Expected Pay</span>
+                                    <span class="stat-val text-green" id="today-pay-total">KES 4,500</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="section-title">
+                            <i data-lucide="clock"></i> <span data-i18n="assigned_turnovers">Assigned Tasks</span>
+                        </div>
+                        <div id="housekeeper-job-list" class="job-card-list">
+                            <!-- Job cards injected by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Tab 2: Active Job Execution Surface -->
+                    <div id="mtab-active-job" class="m-tab-content">
+                        <div id="no-active-job-state" class="empty-state">
+                            <i data-lucide="clipboard-check" class="state-icon"></i>
+                            <h4>No Active Job In Progress</h4>
+                            <p>Select a turnover job from your <strong>Today</strong> list and tap "Start Geofenced Clean" to begin.</p>
+                        </div>
+
+                        <div id="active-job-container" class="active-job-card hidden">
+                            <!-- Injected dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- Tab 3: Earnings & Statement -->
+                    <div id="mtab-earnings" class="m-tab-content">
+                        <div class="earnings-summary-card">
+                            <span class="stat-label">Available Balance</span>
+                            <h2 class="earnings-amount" id="cleaner-balance">KES 14,200</h2>
+                            <p class="payout-note"><i data-lucide="check-circle2"></i> Verified M-Pesa Account: <strong>0722 *** 890</strong></p>
+                            <button id="request-payout-btn" class="btn-primary w-full mt-2">
+                                <i data-lucide="send"></i> Request Express M-Pesa Payout
+                            </button>
+                        </div>
+
+                        <div class="section-title mt-4">
+                            <i data-lucide="history"></i> Recent Completed Jobs & Payout Receipts
+                        </div>
+                        <div id="cleaner-earnings-history" class="history-list">
+                            <!-- History items -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Owner / Host Dashboard Surface -->
+        <section id="surface-owner" class="surface-view">
+            <div class="dashboard-layout">
+                <div class="dashboard-header">
+                    <div>
+                        <h2>Host Operations Control</h2>
+                        <p class="subtitle">Real-time turnover status, photo evidence, and eTIMS tax deductible expense tracking</p>
+                    </div>
+                    <div class="dashboard-actions">
+                        <button id="add-unit-btn" class="btn-secondary"><i data-lucide="plus"></i> Add Property Unit</button>
+                        <button id="import-ical-btn" class="btn-primary"><i data-lucide="calendar"></i> Sync iCal Bookings</button>
+                    </div>
+                </div>
+
+                <!-- Metrics Overview -->
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-icon bg-green-light"><i data-lucide="home"></i></div>
+                        <div>
+                            <span class="metric-label">Properties & Units</span>
+                            <span class="metric-value" id="owner-units-count">12 Units</span>
+                            <span class="metric-sub text-green">Kilimani, Westlands, Diani</span>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon bg-blue-light"><i data-lucide="check-circle"></i></div>
+                        <div>
+                            <span class="metric-label">Turnovers Today</span>
+                            <span class="metric-value" id="owner-turnovers-count">4 Scheduled</span>
+                            <span class="metric-sub text-blue">2 Ready · 1 In-Progress · 1 Pending</span>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon bg-purple-light"><i data-lucide="file-check"></i></div>
+                        <div>
+                            <span class="metric-label">eTIMS Expense Deductible</span>
+                            <span class="metric-value" id="owner-etims-spend">KES 84,000</span>
+                            <span class="metric-sub text-purple">100% Tax Compliant</span>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon bg-orange-light"><i data-lucide="alert-triangle"></i></div>
+                        <div>
+                            <span class="metric-label">Open Incidents / Damages</span>
+                            <span class="metric-value" id="owner-incidents-count">1 Active</span>
+                            <span class="metric-sub text-orange">Broken Lamp (Unit 302)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Unit Readiness Status Board -->
+                <div class="grid-2col mt-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3><i data-lucide="layout-grid"></i> Live Unit Readiness Matrix</h3>
+                            <div class="legend-pills">
+                                <span class="badge badge-ready">Ready</span>
+                                <span class="badge badge-progress">Cleaning</span>
+                                <span class="badge badge-dirty">Dirty / Check-out</span>
+                                <span class="badge badge-risk">At Risk</span>
+                            </div>
+                        </div>
+                        <div id="unit-grid-matrix" class="unit-grid">
+                            <!-- Injected by JS -->
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3><i data-lucide="camera"></i> Recent Evidence & Job Inspections</h3>
+                        </div>
+                        <div id="owner-evidence-feed" class="feed-list">
+                            <!-- Injected by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Agency Dispatch Surface -->
+        <section id="surface-agency" class="surface-view">
+            <div class="dashboard-layout">
+                <div class="dashboard-header">
+                    <div>
+                        <h2>Agency Dispatch & Roster Control Board</h2>
+                        <p class="subtitle">Automated scoring dispatch, route optimization & live territory map</p>
+                    </div>
+                    <div class="dashboard-actions">
+                        <button id="trigger-autoassign-btn" class="btn-primary"><i data-lucide="sparkles"></i> Run AI Auto-Assign Engine</button>
+                    </div>
+                </div>
+
+                <div class="grid-3col mt-4">
+                    <!-- Column 1: Unassigned & Pool Offers -->
+                    <div class="card">
+                        <div class="card-header bg-dark-subtle">
+                            <h3><i data-lucide="inbox"></i> Job Queue & Pool Offers</h3>
+                            <span class="badge badge-amber" id="unassigned-badge">2 Unassigned</span>
+                        </div>
+                        <div id="unassigned-jobs-list" class="dispatch-queue">
+                            <!-- Queue cards -->
+                        </div>
+                    </div>
+
+                    <!-- Column 2: Roster & Cleaner Status -->
+                    <div class="card">
+                        <div class="card-header bg-dark-subtle">
+                            <h3><i data-lucide="users"></i> Active Staff Roster</h3>
+                            <span class="badge badge-green">8 On Duty</span>
+                        </div>
+                        <div id="agency-roster-list" class="roster-list">
+                            <!-- Roster items -->
+                        </div>
+                    </div>
+
+                    <!-- Column 3: Live Territory Map & Traffic -->
+                    <div class="card">
+                        <div class="card-header bg-dark-subtle">
+                            <h3><i data-lucide="map-pin"></i> Territory Map & Live Tracking</h3>
+                        </div>
+                        <div class="map-container">
+                            <div id="agency-map-canvas" class="mock-map">
+                                <div class="map-overlay-info">
+                                    <span>Nairobi Metropolitan Zone</span>
+                                    <small><i data-lucide="navigation"></i> Traffic: Moderate (+12 min travel delay)</small>
+                                </div>
+                                <div id="map-pins-layer">
+                                    <!-- Pins rendered dynamically -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Finance & Tax Surface -->
+        <section id="surface-finance" class="surface-view">
+            <div class="dashboard-layout">
+                <div class="dashboard-header">
+                    <div>
+                        <h2>Finance, Double-Entry Ledger & eTIMS Tax Engine</h2>
+                        <p class="subtitle">ACID-compliant double-entry accounting, eTIMS fiscalization & automated payouts</p>
+                    </div>
+                    <div class="dashboard-actions">
+                        <button id="run-reconcile-btn" class="btn-secondary"><i data-lucide="refresh-cw"></i> Run Daily Bank/M-Pesa Reconciliation</button>
+                        <button id="export-tax-btn" class="btn-primary"><i data-lucide="download"></i> Export iTax Fiscal Pack</button>
+                    </div>
+                </div>
+
+                <!-- Finance Overview Cards -->
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-icon bg-green-light"><i data-lucide="dollar-sign"></i></div>
+                        <div>
+                            <span class="metric-label">Total Platform Revenue</span>
+                            <span class="metric-value" id="fin-revenue">KES 245,000</span>
+                            <span class="metric-sub text-green">Gross Turnover Volume</span>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon bg-blue-light"><i data-lucide="scale"></i></div>
+                        <div>
+                            <span class="metric-label">Worker Payables</span>
+                            <span class="metric-value" id="fin-payables">KES 178,500</span>
+                            <span class="metric-sub text-blue">Settled via M-Pesa B2C</span>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon bg-purple-light"><i data-lucide="receipt"></i></div>
+                        <div>
+                            <span class="metric-label">eTIMS Transmitted Invoices</span>
+                            <span class="metric-value" id="fin-etims-count">48 Fiscalized</span>
+                            <span class="metric-sub text-purple">KRA Control Units Active</span>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon bg-amber-light"><i data-lucide="shield-check"></i></div>
+                        <div>
+                            <span class="metric-label">Ledger Integrity</span>
+                            <span class="metric-value text-green">BALANCED</span>
+                            <span class="metric-sub">Debits = Credits (Diff: 0.00)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Double Entry Ledger & Tax Invoices -->
+                <div class="grid-2col mt-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3><i data-lucide="book-open"></i> Double-Entry General Ledger</h3>
+                            <button id="view-chart-accounts-btn" class="btn-xs">Chart of Accounts</button>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table" id="ledger-table">
+                                <thead>
+                                    <tr>
+                                        <th>Txn ID</th>
+                                        <th>Timestamp</th>
+                                        <th>Description</th>
+                                        <th>Debit Account</th>
+                                        <th>Credit Account</th>
+                                        <th>Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="ledger-rows">
+                                    <!-- Injected by JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3><i data-lucide="file-text"></i> KRA eTIMS Tax Invoices</h3>
+                            <span class="badge badge-green">OSCU System-to-System</span>
+                        </div>
+                        <div id="etims-invoice-list" class="invoice-list">
+                            <!-- Injected by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Admin & Audit Surface -->
+        <section id="surface-admin" class="surface-view">
+            <div class="dashboard-layout">
+                <div class="dashboard-header">
+                    <div>
+                        <h2>Platform Administration & Immutable Audit Trail</h2>
+                        <p class="subtitle">Tenant management, system telemetry, and SHA-256 cryptographic audit hash-chain</p>
+                    </div>
+                </div>
+
+                <div class="grid-2col mt-4">
+                    <!-- Immutable Cryptographic Audit Log -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3><i data-lucide="lock"></i> Cryptographic Audit Log Hash-Chain</h3>
+                            <span class="badge badge-purple"><i data-lucide="link"></i> SHA-256 Chain Intact</span>
+                        </div>
+                        <div id="audit-log-container" class="audit-chain-list">
+                            <!-- Injected by JS -->
+                        </div>
+                    </div>
+
+                    <!-- AI Quality & Vision Diagnostics -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3><i data-lucide="cpu"></i> AI Vision Quality & Anomalies</h3>
+                        </div>
+                        <div id="ai-diagnostics-container" class="diagnostics-box">
+                            <!-- Injected by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modals Layer -->
+    <div id="modal-backdrop" class="modal-backdrop hidden">
+        <div id="modal-container" class="modal-box">
+            <!-- Dynamic Modal Content -->
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Application Scripts -->
+    <script type="module" src="js/firebase-config.js"></script>
+    <script src="js/state.js"></script>
+    <script src="js/ledger.js"></script>
+    <script src="js/etims.js"></script>
+    <script src="js/dispatch.js"></script>
+    <script src="js/sync.js"></script>
+    <script src="js/ai.js"></script>
+    <script src="js/ui/housekeeperView.js"></script>
+    <script src="js/ui/ownerView.js"></script>
+    <script src="js/ui/agencyView.js"></script>
+    <script src="js/ui/financeView.js"></script>
+    <script src="js/ui/adminView.js"></script>
+    <script src="js/ui/landingView.js"></script>
+    <script src="js/subscription.js"></script>
+    <script src="js/export.js"></script>
+    <script src="js/enroll.js"></script>
+    <script src="js/app.js"></script>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Register Progressive Web App (PWA) Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./service-worker.js')
+                    .then(reg => console.log('Service Worker registered successfully:', reg.scope))
+                    .catch(err => console.error('Service Worker registration failed:', err));
+            });
+        }
+    </script>
+</body>
+</html>

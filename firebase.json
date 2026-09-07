@@ -1,6 +1,18 @@
 {
+  "functions": [
+    {
+      "source": "backend/functions",
+      "codebase": "default",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log"
+      ]
+    }
+  ],
   "hosting": {
-    "public": ".",
+    "public": "frontend/out",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -17,10 +29,24 @@
     "rules": "firestore.rules",
     "indexes": "firestore.indexes.json"
   },
-  "auth": {
-    "providers": {
-      "anonymous": true,
-      "emailPassword": true
+  "storage": {
+    "rules": "storage.rules"
+  },
+  "emulators": {
+    "auth": {
+      "port": 9099
+    },
+    "functions": {
+      "port": 5001
+    },
+    "firestore": {
+      "port": 8080
+    },
+    "hosting": {
+      "port": 5000
+    },
+    "ui": {
+      "enabled": true
     }
   }
 }
