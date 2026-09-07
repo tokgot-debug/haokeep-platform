@@ -83,6 +83,20 @@
                 </select>
             </div>
 
+            <!-- Sign In / Persona Level Access Dropdown -->
+            <div class="persona-switcher-box" style="display:flex; align-center; gap:6px;">
+                <label for="persona-select" class="text-xs text-dim font-bold">Sign In / Role Access:</label>
+                <select id="persona-select" class="select-persona" style="background: linear-gradient(135deg, rgba(224,159,62,0.18), rgba(184,128,84,0.28)); border: 1px solid rgba(224,159,62,0.5); color: #f4dbab; border-radius: 6px; padding: 6px 12px; font-weight: 600; cursor: pointer;">
+                    <option value="" disabled selected>🔑 Select Role to Sign In...</option>
+                    <option value="landing">🚀 Landing Overview</option>
+                    <option value="housekeeper">📱 Housekeeper Access</option>
+                    <option value="owner">🏠 Property Owner Access</option>
+                    <option value="agency">🏢 Cleaning Agency Access</option>
+                    <option value="finance">💳 Finance & eTIMS Access</option>
+                    <option value="admin">🛡️ Platform Admin Access</option>
+                </select>
+            </div>
+
             <!-- Notification Center Bell Button -->
             <button id="notif-center-btn" class="btn-icon-relative btn-icon" title="View Real-Time Alerts & Notifications">
                 <i data-lucide="bell"></i>

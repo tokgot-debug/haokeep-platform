@@ -28,13 +28,29 @@ window.HaoKeepApp = {
     bindGlobalControls() {
         const store = window.HaoKeepStore;
 
-        // Persona Switcher
+        // Role Access / Sign In Dropdown
         const personaSelect = document.getElementById('persona-select');
         if (personaSelect) {
             personaSelect.addEventListener('change', (e) => {
-                store.context.persona = e.target.value;
-                this.addAuditLog(`Persona Switched to ${e.target.value.toUpperCase()}`);
-                this.renderActiveView();
+                const targetPersona = e.target.value;
+                if (targetPersona === 'landing') {
+                    store.context.persona = 'landing';
+                    this.renderActiveView();
+                    return;
+                }
+
+                const currentUser = window.HaoKeepAuth?.currentUser;
+                // If user is already logged in with matching role or admin, allow direct navigation
+                if (currentUser && (currentUser.persona === targetPersona || currentUser.persona === 'admin')) {
+                    store.context.persona = targetPersona;
+                    this.addAuditLog(`Switched Role View to ${targetPersona.toUpperCase()} (${currentUser.name})`);
+                    this.renderActiveView();
+                } else {
+                    // Prompt Login Modal for selected role level
+                    window.HaoKeepAuth?.showLoginModal(targetPersona);
+                    // Reset dropdown selection until authenticated
+                    personaSelect.value = store.context.persona || '';
+                }
             });
         }
 
