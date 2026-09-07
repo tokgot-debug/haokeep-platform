@@ -115,13 +115,120 @@
         </div>
     </header>
 
-    <!-- Main Workspace Container -->
-    <main class="app-body">
-        
-        <!-- 0. Landing Page Surface -->
-        <section id="surface-landing" class="surface-view">
-            <!-- Dynamic Landing View Content -->
-        </section>
+    <!-- Main App Layout with Left Navigation Sidebar -->
+    <div class="app-layout-wrapper">
+        <!-- Left Sidebar Navigation -->
+        <aside class="app-sidebar">
+            <div class="sidebar-brand">
+                <div class="sidebar-logo">
+                    <i data-lucide="sparkles"></i>
+                </div>
+                <div class="sidebar-brand-info">
+                    <h3 class="sidebar-title">Vanbransa</h3>
+                    <span class="sidebar-sub">CLEANPULSE OS</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <!-- Overview Group -->
+                <div class="nav-section">
+                    <div class="nav-section-header">
+                        <span>OVERVIEW</span>
+                        <i data-lucide="chevron-down" class="section-icon"></i>
+                    </div>
+                    <ul class="nav-items">
+                        <li class="nav-item active" data-persona="owner">
+                            <a href="#" class="nav-link">
+                                <i data-lucide="layout-dashboard"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-item" data-action="ai-assist">
+                            <a href="#" class="nav-link">
+                                <i data-lucide="sparkles"></i>
+                                <span>AI Assist</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Operations & Personas -->
+                <div class="nav-section">
+                    <div class="nav-section-header">
+                        <span>OPERATIONS & ROLES</span>
+                        <i data-lucide="chevron-down" class="section-icon"></i>
+                    </div>
+                    <ul class="nav-items">
+                        <li class="nav-item" data-persona="housekeeper">
+                            <a href="#" class="nav-link">
+                                <i data-lucide="smartphone"></i>
+                                <span>📱 Housekeeper Field</span>
+                            </a>
+                        </li>
+                        <li class="nav-item" data-persona="owner">
+                            <a href="#" class="nav-link">
+                                <i data-lucide="home"></i>
+                                <span>🏠 Property Owner</span>
+                            </a>
+                        </li>
+                        <li class="nav-item" data-persona="agency">
+                            <a href="#" class="nav-link">
+                                <i data-lucide="building"></i>
+                                <span>🏢 Cleaning Agency</span>
+                            </a>
+                        </li>
+                        <li class="nav-item" data-persona="landing">
+                            <a href="#" class="nav-link">
+                                <i data-lucide="rocket"></i>
+                                <span>🚀 Landing Overview</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Finance & eTIMS -->
+                <div class="nav-section">
+                    <div class="nav-section-header">
+                        <span>FINANCE & TAX</span>
+                        <i data-lucide="chevron-down" class="section-icon"></i>
+                    </div>
+                    <ul class="nav-items">
+                        <li class="nav-item" data-persona="finance">
+                            <a href="#" class="nav-link">
+                                <i data-lucide="receipt"></i>
+                                <span>💳 Finance & eTIMS</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Administration & Audit -->
+                <div class="nav-section">
+                    <div class="nav-section-header">
+                        <span>ADMINISTRATION</span>
+                        <i data-lucide="chevron-down" class="section-icon"></i>
+                    </div>
+                    <ul class="nav-items">
+                        <li class="nav-item" data-persona="admin">
+                            <a href="#" class="nav-link">
+                                <i data-lucide="shield-check"></i>
+                                <span>🛡️ Platform Admin</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Workspace Area -->
+        <div class="main-content-area">
+            <!-- Main Workspace Container -->
+            <main class="app-body">
+                
+                <!-- 0. Landing Page Surface -->
+                <section id="surface-landing" class="surface-view">
+                    <!-- Dynamic Landing View Content -->
+                </section>
 
         <!-- 1. Housekeeper Surface (Mobile App Simulation) -->
         <section id="surface-housekeeper" class="surface-view active">
@@ -468,6 +575,8 @@
         </section>
 
     </main>
+        </div> <!-- /.main-content-area -->
+    </div> <!-- /.app-layout-wrapper -->
 
     <!-- Modals Layer -->
     <div id="modal-backdrop" class="modal-backdrop hidden">

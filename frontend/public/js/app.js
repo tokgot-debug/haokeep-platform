@@ -28,6 +28,28 @@ window.HaoKeepApp = {
     bindGlobalControls() {
         const store = window.HaoKeepStore;
 
+        // Sidebar Nav Item Clicks
+        document.querySelectorAll('.app-sidebar .nav-item[data-persona]').forEach(navItem => {
+            navItem.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetPersona = navItem.dataset.persona;
+                if (targetPersona === 'landing') {
+                    store.context.persona = 'landing';
+                    this.renderActiveView();
+                    return;
+                }
+
+                const currentUser = window.HaoKeepAuth?.currentUser;
+                if (currentUser && (currentUser.persona === targetPersona || currentUser.persona === 'admin')) {
+                    store.context.persona = targetPersona;
+                    this.addAuditLog(`Switched View via Sidebar to ${targetPersona.toUpperCase()}`);
+                    this.renderActiveView();
+                } else {
+                    window.HaoKeepAuth?.showLoginModal(targetPersona);
+                }
+            });
+        });
+
         // Role Access / Sign In Dropdown
         const personaSelect = document.getElementById('persona-select');
         if (personaSelect) {
@@ -271,6 +293,11 @@ window.HaoKeepApp = {
                     break;
             }
         }
+
+        // Update Sidebar Nav Item active class
+        document.querySelectorAll('.app-sidebar .nav-item').forEach(el => el.classList.remove('active'));
+        const activeNavItem = document.querySelector(`.app-sidebar .nav-item[data-persona="${persona}"]`);
+        if (activeNavItem) activeNavItem.classList.add('active');
 
         // Update Persona Select Dropdown state
         const personaSelectEl = document.getElementById('persona-select');
