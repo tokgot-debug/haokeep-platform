@@ -1,0 +1,109 @@
+[debug] [2026-09-07T19:13:06.132Z] ----------------------------------------------------------------------
+[debug] [2026-09-07T19:13:06.133Z] Command:       /usr/local/bin/node /Users/bonny/.npm/_npx/ba4f1959e38407b5/node_modules/.bin/firebase deploy --only hosting --project vanbransa-housekeeping-pro
+[debug] [2026-09-07T19:13:06.133Z] CLI Version:   15.29.0
+[debug] [2026-09-07T19:13:06.133Z] Platform:      darwin
+[debug] [2026-09-07T19:13:06.133Z] Node Version:  v24.18.0
+[debug] [2026-09-07T19:13:06.133Z] Detected Agent: antigravity
+[debug] [2026-09-07T19:13:06.133Z] Time:          Mon Sep 07 2026 22:13:06 GMT+0300 (East Africa Time)
+[debug] [2026-09-07T19:13:06.133Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-09-07T19:13:06.375Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-09-07T19:13:06.375Z] > authorizing via signed-in user (tokgot@gmail.com)
+[debug] [2026-09-07T19:13:06.375Z] [iam] checking project vanbransa-housekeeping-pro for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2026-09-07T19:13:06.379Z] Checked if tokens are valid: true, expires at: 1788810904450
+[debug] [2026-09-07T19:13:06.379Z] Checked if tokens are valid: true, expires at: 1788810904450
+[debug] [2026-09-07T19:13:06.379Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/vanbransa-housekeeping-pro:testIamPermissions [none]
+[debug] [2026-09-07T19:13:06.379Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/vanbransa-housekeeping-pro:testIamPermissions  x-goog-user-project=vanbransa-housekeeping-pro
+[debug] [2026-09-07T19:13:06.379Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/vanbransa-housekeeping-pro:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-09-07T19:13:08.717Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/vanbransa-housekeeping-pro:testIamPermissions 200
+[debug] [2026-09-07T19:13:08.718Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/vanbransa-housekeeping-pro:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-09-07T19:13:08.718Z] Checked if tokens are valid: true, expires at: 1788810904450
+[debug] [2026-09-07T19:13:08.718Z] Checked if tokens are valid: true, expires at: 1788810904450
+[debug] [2026-09-07T19:13:08.718Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/vanbransa-housekeeping-pro [none]
+[debug] [2026-09-07T19:13:09.294Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/vanbransa-housekeeping-pro 200
+[debug] [2026-09-07T19:13:09.295Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/vanbransa-housekeeping-pro {"projectId":"vanbransa-housekeeping-pro","projectNumber":"505255380907","displayName":"Vanbransa Housekeeping Pro","name":"projects/vanbransa-housekeeping-pro","resources":{"hostingSite":"vanbransa-housekeeping-pro"},"state":"ACTIVE","labels":{"firebase":"enabled"},"etag":"1_b6d08897-21e1-4598-900d-b716ecb42016"}
+[info] 
+[info] === Deploying to 'vanbransa-housekeeping-pro'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2026-09-07T19:13:09.297Z] Checked if tokens are valid: true, expires at: 1788810904450
+[debug] [2026-09-07T19:13:09.298Z] Checked if tokens are valid: true, expires at: 1788810904450
+[debug] [2026-09-07T19:13:09.298Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/vanbransa-housekeeping-pro/sites/vanbransa-housekeeping-pro [none]
+[debug] [2026-09-07T19:13:11.450Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/vanbransa-housekeeping-pro/sites/vanbransa-housekeeping-pro 200
+[debug] [2026-09-07T19:13:11.450Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/vanbransa-housekeeping-pro/sites/vanbransa-housekeeping-pro {"name":"projects/vanbransa-housekeeping-pro/sites/vanbransa-housekeeping-pro","defaultUrl":"https://vanbransa-housekeeping-pro.web.app","appId":"1:505255380907:web:aed893af94dfbb52aa74ee","type":"DEFAULT_SITE"}
+[debug] [2026-09-07T19:13:11.452Z] Checked if tokens are valid: true, expires at: 1788810904450
+[debug] [2026-09-07T19:13:11.452Z] Checked if tokens are valid: true, expires at: 1788810904450
+[debug] [2026-09-07T19:13:11.453Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/vanbransa-housekeeping-pro/versions [none]
+[debug] [2026-09-07T19:13:11.453Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/vanbransa-housekeeping-pro/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2026-09-07T19:13:13.093Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/vanbransa-housekeeping-pro/versions 200
+[debug] [2026-09-07T19:13:13.093Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/vanbransa-housekeeping-pro/versions {"name":"projects/505255380907/sites/vanbransa-housekeeping-pro/versions/d2a51cb111311132","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[vanbransa-housekeeping-pro]: beginning deploy... 
+[info] i  hosting[vanbransa-housekeeping-pro]: found 25 files in frontend/out 
+[debug] [2026-09-07T19:13:13.103Z] [hosting] uploading with 200 concurrency
+[debug] [2026-09-07T19:13:13.128Z] Checked if tokens are valid: true, expires at: 1788810904450
+[debug] [2026-09-07T19:13:13.128Z] Checked if tokens are valid: true, expires at: 1788810904450
+[debug] [2026-09-07T19:13:13.129Z] [hosting] hash cache [ZnJvbnRlbmQvb3V0] stored for 25 files
+[debug] [2026-09-07T19:13:13.129Z] [hosting][hash queue][FINAL] {"max":23,"min":8,"avg":8.84,"active":0,"complete":25,"success":25,"errored":0,"retried":0,"total":25,"elapsed":25}
+[debug] [2026-09-07T19:13:13.129Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/505255380907/sites/vanbransa-housekeeping-pro/versions/d2a51cb111311132:populateFiles [none]
+[debug] [2026-09-07T19:13:13.129Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/505255380907/sites/vanbransa-housekeeping-pro/versions/d2a51cb111311132:populateFiles {"files":{"/manifest.json":"ebea014947f44e92f5ab7ccad8cb3c5573f743ab9f957a18869328ec03c89928","/service-worker.js":"cfe5862edb74d50a64b4fba0e0c790eb339b7550a713c8b3fbeca83cdc05d7e9","/js/firebase-config.js":"8e8a0b8b7d8e8730426ebf0b8d422d9825ff4a19881d2b503bdf07a16532b8c1","/js/etims.js":"ced934f7fd33a6bffb9816a95a32ec848408bd5d14281d338d0f5e0c8725260c","/js/export.js":"1e3f762a5eed1e128e2ec01096df73cfdba566b20bd1a40849f574a6c5e8ea2c","/js/auth.js":"6956eaddb5c09c98cea6cf40231159122d03ecae7ba2bb4a03958fb246283a9d","/js/state.js":"253f581a0ed02fa8fa961a5e26335259d5c282648a73b1a60ed9851734127d06","/js/sync.js":"040cf79a505fc6e9855499a4b08ce47d6a394d3601bd3246ac93b1b1200da76f","/js/dispatch.js":"a758536183c43f611f09ece86452ba9f72d2d862f77f06e3d31e0eaff7822672","/js/ai.js":"a7b5c4d640c11e18e0890088dc366bedc9dfc4f150698415b89ea43d06f50115","/js/ledger.js":"b81490dc12686185f9b5b1d0382d0200e9ea173245d9aed2ed1c3a4b23f1dcb7","/js/enroll.js":"ca08199fd58c5875a4f7766bb25873d4f12f6a79759540b64bc67766f2c0131d","/js/ui/landingView.js":"1a419b6fa9c8dc16d1e4fd9142bc314aba2daa925185b53775508aa0e07df6d2","/js/app.js":"6c9ae9098b334efc58c74d37bd74c855004e57507601d7016eda705aa20596b3","/index.html":"79651cccde27e92373aedf70c6a34a5407b9f054918c4f81ab6d27c2de1fa586","/js/ui/financeView.js":"8db2980dc21d7ebf3937bb3501e8a6829716426c6843e09540a3b6ce4a9c2a1a","/js/subscription.js":"79137092d8ca7edcd4bbecf6a387bd2c407ff08260fab0110c8a928d1e0e74fe","/js/ui/agencyView.js":"6faf5748581f57ee6fdea274334e34424ca87e729b5764b7ebd3073be68ba177","/js/ui/adminView.js":"f954a1e02419195015a40b0d35d402d16a3caacff916ecfc2cc7fe91c86f0d4e","/css/mobile.css":"d41322dcac7c98d49efc8b4f5ffa1035b34fa91352d1af59340e6dca604d1cf6","/css/main.css":"4d8101d8d0d1ccbdb2d063a51c39d3b7637a84bc82cde00b93a361afe7a51c08","/css/components.css":"6a2b50a07b79c23b3dee4758923b2d46903ac31b26c651b257ee380e5eeed556","/js/ui/ownerView.js":"c698609725fc5ae7267df5a3f309d995c68134c64b702c9366ec8ec1e83a9dc7","/js/ui/housekeeperView.js":"c2145719d88368e28efe1a31f5ddd32040e69f2a56840dcb1407039dcf794bf1","/assets/landing_hero.jpg":"2e4db6a323a80319f46ae5e7286f427f764d76e621bb7af3df2e88bcbbfb1a51"}}
+[debug] [2026-09-07T19:13:14.176Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/505255380907/sites/vanbransa-housekeeping-pro/versions/d2a51cb111311132:populateFiles 200
+[debug] [2026-09-07T19:13:14.176Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/505255380907/sites/vanbransa-housekeeping-pro/versions/d2a51cb111311132:populateFiles {"uploadRequiredHashes":["c698609725fc5ae7267df5a3f309d995c68134c64b702c9366ec8ec1e83a9dc7","d41322dcac7c98d49efc8b4f5ffa1035b34fa91352d1af59340e6dca604d1cf6","4d8101d8d0d1ccbdb2d063a51c39d3b7637a84bc82cde00b93a361afe7a51c08"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/vanbransa-housekeeping-pro/versions/d2a51cb111311132/files"}
+[debug] [2026-09-07T19:13:14.177Z] Checked if tokens are valid: true, expires at: 1788810904450
+[debug] [2026-09-07T19:13:14.177Z] Checked if tokens are valid: true, expires at: 1788810904450
+[debug] [2026-09-07T19:13:14.177Z] Checked if tokens are valid: true, expires at: 1788810904450
+[debug] [2026-09-07T19:13:14.177Z] Checked if tokens are valid: true, expires at: 1788810904450
+[debug] [2026-09-07T19:13:14.177Z] Checked if tokens are valid: true, expires at: 1788810904450
+[debug] [2026-09-07T19:13:14.177Z] Checked if tokens are valid: true, expires at: 1788810904450
+[debug] [2026-09-07T19:13:14.177Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/vanbransa-housekeeping-pro/versions/d2a51cb111311132/files/c698609725fc5ae7267df5a3f309d995c68134c64b702c9366ec8ec1e83a9dc7 [none]
+[debug] [2026-09-07T19:13:14.177Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/vanbransa-housekeeping-pro/versions/d2a51cb111311132/files/c698609725fc5ae7267df5a3f309d995c68134c64b702c9366ec8ec1e83a9dc7 [stream]
+[debug] [2026-09-07T19:13:14.178Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/vanbransa-housekeeping-pro/versions/d2a51cb111311132/files/d41322dcac7c98d49efc8b4f5ffa1035b34fa91352d1af59340e6dca604d1cf6 [none]
+[debug] [2026-09-07T19:13:14.178Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/vanbransa-housekeeping-pro/versions/d2a51cb111311132/files/d41322dcac7c98d49efc8b4f5ffa1035b34fa91352d1af59340e6dca604d1cf6 [stream]
+[debug] [2026-09-07T19:13:14.179Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/vanbransa-housekeeping-pro/versions/d2a51cb111311132/files/4d8101d8d0d1ccbdb2d063a51c39d3b7637a84bc82cde00b93a361afe7a51c08 [none]
+[debug] [2026-09-07T19:13:14.179Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/vanbransa-housekeeping-pro/versions/d2a51cb111311132/files/4d8101d8d0d1ccbdb2d063a51c39d3b7637a84bc82cde00b93a361afe7a51c08 [stream]
+[debug] [2026-09-07T19:13:14.181Z] [hosting][populate queue][FINAL] {"max":1049,"min":1049,"avg":1049,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":1053}
+[debug] [2026-09-07T19:13:14.181Z] [hosting] uploads queued: 3
+[info] i  hosting: uploading new files [0/3] (0%) 
+[debug] [2026-09-07T19:13:15.700Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/vanbransa-housekeeping-pro/versions/d2a51cb111311132/files/4d8101d8d0d1ccbdb2d063a51c39d3b7637a84bc82cde00b93a361afe7a51c08 200
+[debug] [2026-09-07T19:13:15.700Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/vanbransa-housekeeping-pro/versions/d2a51cb111311132/files/4d8101d8d0d1ccbdb2d063a51c39d3b7637a84bc82cde00b93a361afe7a51c08 [stream]
+[debug] [2026-09-07T19:13:15.812Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/vanbransa-housekeeping-pro/versions/d2a51cb111311132/files/d41322dcac7c98d49efc8b4f5ffa1035b34fa91352d1af59340e6dca604d1cf6 200
+[debug] [2026-09-07T19:13:15.812Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/vanbransa-housekeeping-pro/versions/d2a51cb111311132/files/d41322dcac7c98d49efc8b4f5ffa1035b34fa91352d1af59340e6dca604d1cf6 [stream]
+[debug] [2026-09-07T19:13:16.537Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/vanbransa-housekeeping-pro/versions/d2a51cb111311132/files/c698609725fc5ae7267df5a3f309d995c68134c64b702c9366ec8ec1e83a9dc7 200
+[debug] [2026-09-07T19:13:16.537Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/vanbransa-housekeeping-pro/versions/d2a51cb111311132/files/c698609725fc5ae7267df5a3f309d995c68134c64b702c9366ec8ec1e83a9dc7 [stream]
+[debug] [2026-09-07T19:13:16.538Z] [hosting][upload queue][FINAL] {"max":2361,"min":1523,"avg":1839.6666666666667,"active":0,"complete":3,"success":3,"errored":0,"retried":0,"total":3,"elapsed":2361}
+[info] i  hosting: upload complete 
+[info] ✔  hosting[vanbransa-housekeeping-pro]: file upload complete 
+[debug] [2026-09-07T19:13:16.538Z] [hosting] deploy completed after 3443ms
+[debug] [2026-09-07T19:13:16.539Z] [
+  {
+    "config": {
+      "public": "frontend/out",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "vanbransa-housekeeping-pro"
+    },
+    "version": "projects/505255380907/sites/vanbransa-housekeeping-pro/versions/d2a51cb111311132"
+  }
+]
+[info] i  hosting[vanbransa-housekeeping-pro]: finalizing version... 
+[debug] [2026-09-07T19:13:16.540Z] Checked if tokens are valid: true, expires at: 1788810904450
+[debug] [2026-09-07T19:13:16.540Z] Checked if tokens are valid: true, expires at: 1788810904450
+[debug] [2026-09-07T19:13:16.540Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/vanbransa-housekeeping-pro/versions/d2a51cb111311132 updateMask=status%2Cconfig
+[debug] [2026-09-07T19:13:16.540Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/vanbransa-housekeeping-pro/versions/d2a51cb111311132 {"status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]}}
+[debug] [2026-09-07T19:13:18.067Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/vanbransa-housekeeping-pro/versions/d2a51cb111311132 200
+[debug] [2026-09-07T19:13:18.067Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/vanbransa-housekeeping-pro/versions/d2a51cb111311132 {"name":"projects/505255380907/sites/vanbransa-housekeeping-pro/versions/d2a51cb111311132","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2026-09-07T19:13:12.155581Z","createUser":{"email":"tokgot@gmail.com"},"finalizeTime":"2026-09-07T19:13:18.036596Z","finalizeUser":{"email":"tokgot@gmail.com"}}
+[debug] [2026-09-07T19:13:18.067Z] [hosting] finalized version for vanbransa-housekeeping-pro:[object Object]
+[info] ✔  hosting[vanbransa-housekeeping-pro]: version finalized 
+[info] i  hosting[vanbransa-housekeeping-pro]: releasing new version... 
+[debug] [2026-09-07T19:13:18.067Z] Checked if tokens are valid: true, expires at: 1788810904450
+[debug] [2026-09-07T19:13:18.067Z] Checked if tokens are valid: true, expires at: 1788810904450
+[debug] [2026-09-07T19:13:18.068Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/vanbransa-housekeeping-pro/channels/live/releases versionName=projects%2F505255380907%2Fsites%2Fvanbransa-housekeeping-pro%2Fversions%2Fd2a51cb111311132
+[debug] [2026-09-07T19:13:18.068Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/vanbransa-housekeeping-pro/channels/live/releases {}

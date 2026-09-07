@@ -74,15 +74,15 @@ window.HaoKeepOwnerView = {
                         </div>
                         <div class="inv-grid mt-2">
                             ${(store.inventory || []).map(inv => `
-                                <div class="inv-item-row">
+                                <div class="inv-item-row" style="background:#ffffff; border:1px solid rgba(92, 64, 46, 0.18);">
                                     <div>
-                                        <div class="font-bold text-xs text-primary">${inv.name} (${inv.unitName})</div>
-                                        <div class="text-xs text-muted">Stock: ${inv.currentCount} ${inv.unit} • Threshold: ${inv.minThreshold}</div>
+                                        <div class="font-bold text-xs" style="color: #1c140e;">${inv.name} (${inv.unitName})</div>
+                                        <div class="text-xs" style="color: #4a3c2e; font-weight: 500;">Stock: ${inv.currentCount} ${inv.unit} • Threshold: ${inv.minThreshold}</div>
                                     </div>
                                     <div>
                                         ${inv.currentCount <= inv.minThreshold ? 
                                             `<span class="badge badge-red">⚠️ REORDER NEEDED</span>` : 
-                                            `<span class="badge badge-green">OK</span>`
+                                            `<span class="badge badge-green" style="background:#2d6a4f; color:#ffffff; font-weight:bold;">OK</span>`
                                         }
                                     </div>
                                 </div>
@@ -100,14 +100,14 @@ window.HaoKeepOwnerView = {
                         </div>
                         <div class="inv-grid mt-2">
                             ${(store.iCalFeeds || []).map(feed => `
-                                <div class="inv-item-row">
+                                <div class="inv-item-row" style="background:#ffffff; border:1px solid rgba(92, 64, 46, 0.18);">
                                     <div>
-                                        <div class="font-bold text-xs text-primary">${feed.platform} — ${feed.unitName}</div>
-                                        <div class="text-xs text-muted font-mono">${feed.url.substring(0, 32)}...</div>
+                                        <div class="font-bold text-xs" style="color: #1c140e;">${feed.platform} — ${feed.unitName}</div>
+                                        <div class="text-xs font-mono" style="color: #5c4b3a;">${feed.url.substring(0, 32)}...</div>
                                     </div>
                                     <div class="text-right">
-                                        <span class="badge badge-green">${feed.status}</span>
-                                        <div class="text-xs text-muted mt-1">Synced ${feed.lastSync}</div>
+                                        <span class="badge badge-green" style="background:#2d6a4f; color:#ffffff; font-weight:bold;">${feed.status}</span>
+                                        <div class="text-xs mt-1" style="color: #5c4b3a;">Synced ${feed.lastSync}</div>
                                     </div>
                                 </div>
                             `).join('')}
@@ -125,26 +125,26 @@ window.HaoKeepOwnerView = {
                     </div>
                     <div class="grid-3col gap-3 mt-3">
                         ${(store.cleaners || []).map(cleaner => `
-                            <div class="card p-3 border bg-darker rounded">
+                            <div class="card p-3 border rounded" style="background: #fdfbf7; border: 1px solid rgba(92, 64, 46, 0.15);">
                                 <div class="flex-between mb-2">
                                     <div class="flex align-center gap-2">
-                                        <div class="avatar-sm" style="width:36px; height:36px; border-radius:50%; background:#e09f3e; color:#0a0806; font-weight:800; display:flex; align-items:center; justify-content:center;">
+                                        <div class="avatar-sm" style="width:36px; height:36px; border-radius:50%; background:#8c5e34; color:#ffffff; font-weight:800; display:flex; align-items:center; justify-content:center;">
                                             ${cleaner.name.split(' ').map(n => n[0]).join('')}
                                         </div>
                                         <div>
-                                            <strong class="text-sm text-primary display-block">${cleaner.name}</strong>
-                                            <span class="text-xxs text-muted">${cleaner.assignedTerritory || 'Nairobi Central'}</span>
+                                            <strong class="text-sm display-block" style="color: #1c140e; font-weight: 800;">${cleaner.name}</strong>
+                                            <span class="text-xxs font-bold" style="color: #6b5c4e;">${cleaner.assignedTerritory || 'Nairobi Central'}</span>
                                         </div>
                                     </div>
                                     <span class="badge badge-${cleaner.status === 'AVAILABLE' ? 'green' : 'purple'}">${cleaner.status}</span>
                                 </div>
-                                <div class="text-xs text-dim mb-2">
-                                    📞 <strong>${cleaner.phone}</strong><br>
-                                    💵 M-Pesa: <code>${cleaner.mpesaNumber}</code>
+                                <div class="text-xs mb-2" style="color: #4a3c2e;">
+                                    📞 <strong style="color: #1c140e;">${cleaner.phone}</strong><br>
+                                    💵 M-Pesa: <code style="background: #e8e2d8; color: #1c140e; padding: 2px 6px; border-radius: 4px; font-weight: 700;">${cleaner.mpesaNumber}</code>
                                 </div>
-                                <div class="flex-between text-xs pt-2 border-top">
-                                    <span class="text-muted">Rating: ⭐ ${cleaner.rating || '4.9'}</span>
-                                    <button class="btn btn-xs btn-secondary" onclick="window.HaoKeepEnroll.showEditCleanerForm('${cleaner.id}')">
+                                <div class="flex-between text-xs pt-2" style="border-top: 1px solid rgba(92, 64, 46, 0.1);">
+                                    <span class="font-bold" style="color: #4a3c2e;">Rating: ⭐ ${cleaner.rating || '4.9'}</span>
+                                    <button class="btn btn-xs btn-secondary" onclick="window.HaoKeepEnroll.showEditCleanerForm('${cleaner.id}')" style="background: #f4f1eb; color: #1c140e; border: 1px solid #c9b097;">
                                         <i data-lucide="edit"></i> ${isSwahili ? 'Hariri' : 'Edit'}
                                     </button>
                                 </div>

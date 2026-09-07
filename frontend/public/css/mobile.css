@@ -273,9 +273,10 @@
     align-items: center;
     justify-content: space-between;
     padding: 0.65rem 0.85rem;
-    background: rgba(18, 14, 11, 0.8);
-    border: 1px solid rgba(212, 163, 115, 0.15);
+    background: #f8f5f0;
+    border: 1px solid rgba(92, 64, 46, 0.12);
     border-radius: 10px;
+    color: #1c140e;
 }
 
 .inv-stepper {
