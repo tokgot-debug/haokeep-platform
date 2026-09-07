@@ -530,7 +530,7 @@ body {
     height: 100%;
     background-size: cover;
     background-position: center;
-    filter: brightness(0.35) contrast(1.1);
+    filter: brightness(0.25) contrast(1.2);
     z-index: 1;
     transition: transform 10s ease;
 }
@@ -550,27 +550,31 @@ body {
 .hero-title {
     font-family: var(--font-heading);
     font-size: clamp(2.2rem, 5vw, 3.6rem);
-    font-weight: 800;
+    font-weight: 900;
     line-height: 1.15;
-    color: var(--text-main);
+    color: #ffffff !important;
     margin-bottom: 1.25rem;
     letter-spacing: -0.02em;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
 }
 
 .text-gradient {
-    background: linear-gradient(135deg, var(--primary) 0%, #f3c699 50%, #bc8a5f 100%);
+    background: linear-gradient(135deg, #e09f3e 0%, #f4a261 50%, #dda15e 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.7));
 }
 
 .hero-subtitle {
     font-size: 1.15rem;
-    color: var(--text-muted);
+    color: #f4f1eb !important;
+    font-weight: 500;
     line-height: 1.6;
     margin-bottom: 2rem;
     max-width: 760px;
     margin-left: auto;
     margin-right: auto;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95);
 }
 
 .hero-cta-group {
@@ -585,13 +589,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background: rgba(14, 11, 8, 0.85);
-    backdrop-filter: var(--backdrop-glass);
-    border: 1px solid var(--border-color);
+    background: rgba(18, 14, 10, 0.92);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(224, 159, 62, 0.3);
     border-radius: var(--radius-md);
     padding: 1.25rem 1.5rem;
     flex-wrap: wrap;
     gap: 1rem;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
 }
 
 .stat-item {
@@ -604,12 +609,13 @@ body {
     font-family: var(--font-heading);
     font-size: 1.4rem;
     font-weight: 800;
-    color: var(--primary);
+    color: #e09f3e !important;
 }
 
 .stat-lbl {
     font-size: 0.75rem;
-    color: var(--text-dim);
+    color: #d4c5b5 !important;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin-top: 2px;

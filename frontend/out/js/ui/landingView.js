@@ -21,14 +21,14 @@ window.HaoKeepLandingView = {
                         </p>
                         
                         <div class="hero-cta-group">
-                            <button id="hero-btn-register" class="btn btn-primary btn-lg" style="background: linear-gradient(135deg, #e09f3e, #b88054) !important; color:#0a0806 !important;">
+                            <button id="hero-btn-register" class="btn btn-primary btn-lg" style="background: linear-gradient(135deg, #dda15e, #bc6c25) !important; color:#0a0806 !important; font-weight:800; box-shadow: 0 6px 20px rgba(221, 161, 94, 0.4);">
                                 <i data-lucide="user-check"></i> Register Account & Get Unique Access Code
                             </button>
-                            <button id="hero-btn-subscribe" class="btn btn-secondary btn-lg">
-                                <i data-lucide="crown"></i> Subscribe & Pricing Plans
+                            <button id="hero-btn-subscribe" class="btn btn-secondary btn-lg" style="background: rgba(255, 255, 255, 0.15) !important; color:#ffffff !important; border: 1.5px solid rgba(255, 255, 255, 0.4) !important; font-weight:700; backdrop-filter: blur(8px);">
+                                <i data-lucide="crown" style="color:#e09f3e;"></i> Subscribe & Pricing Plans
                             </button>
-                            <button id="hero-btn-demo" class="btn btn-secondary btn-lg">
-                                <i data-lucide="play-circle"></i> Launch Live Platform Demo
+                            <button id="hero-btn-demo" class="btn btn-secondary btn-lg" style="background: rgba(255, 255, 255, 0.15) !important; color:#ffffff !important; border: 1.5px solid rgba(255, 255, 255, 0.4) !important; font-weight:700; backdrop-filter: blur(8px);">
+                                <i data-lucide="play-circle" style="color:#e09f3e;"></i> Launch Live Platform Demo
                             </button>
                         </div>
 
