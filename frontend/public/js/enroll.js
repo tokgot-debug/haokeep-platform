@@ -4,34 +4,37 @@
  */
 window.HaoKeepEnroll = {
 
-    // ── Add New Housekeeper / Field Cleaner ──────────────────────────
-    showAddCleanerForm() {
+    // ── Add / Edit Housekeeper / Field Cleaner ──────────────────────────
+    showAddCleanerForm(cleanerToEdit = null) {
         const content = `
             <form id="form-add-cleaner" class="enroll-form">
                 <div class="form-group">
                     <label>Full Name <span class="req">*</span></label>
-                    <input type="text" id="enr-cleaner-name" class="form-input" placeholder="e.g. Jane Wangari" required>
+                    <input type="text" id="enr-cleaner-name" class="form-input" placeholder="e.g. Jane Wangari" value="${cleanerToEdit ? cleanerToEdit.name : ''}" required>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
                         <label>Phone (Safaricom) <span class="req">*</span></label>
-                        <input type="tel" id="enr-cleaner-phone" class="form-input" placeholder="+254 7XX XXX XXX" required>
+                        <input type="tel" id="enr-cleaner-phone" class="form-input" placeholder="+254 7XX XXX XXX" value="${cleanerToEdit ? cleanerToEdit.phone : ''}" required>
                     </div>
                     <div class="form-group">
                         <label>M-Pesa Number <span class="req">*</span></label>
-                        <input type="tel" id="enr-cleaner-mpesa" class="form-input" placeholder="254 7XX XXX XXX">
+                        <input type="tel" id="enr-cleaner-mpesa" class="form-input" placeholder="254 7XX XXX XXX" value="${cleanerToEdit ? cleanerToEdit.mpesaNumber : ''}">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
-                        <label>Assigned Territory</label>
-                        <select id="enr-cleaner-territory" class="form-input">
-                            <option value="Nairobi West / Kilimani">Nairobi West / Kilimani</option>
-                            <option value="Nairobi Central / Westlands">Nairobi Central / Westlands</option>
-                            <option value="Mombasa / Nyali / Diani">Mombasa / Nyali / Diani</option>
-                            <option value="Kisumu / Milimani">Kisumu / Milimani</option>
-                            <option value="Nakuru / Nanyuki">Nakuru / Nanyuki</option>
-                        </select>
+                        <label>Assigned Territory / Location</label>
+                        <input type="text" id="enr-cleaner-territory" class="form-input" list="territory-list" placeholder="e.g. Nairobi West / Kilimani or custom area..." value="${cleanerToEdit ? (cleanerToEdit.assignedTerritory || '') : 'Nairobi West / Kilimani'}">
+                        <datalist id="territory-list">
+                            <option value="Nairobi West / Kilimani"></option>
+                            <option value="Nairobi Central / Westlands"></option>
+                            <option value="Mombasa / Nyali / Diani"></option>
+                            <option value="Kisumu / Milimani"></option>
+                            <option value="Nakuru / Nanyuki"></option>
+                            <option value="Lavington / Kileleshwa"></option>
+                            <option value="Karen / Langata"></option>
+                        </datalist>
                     </div>
                     <div class="form-group">
                         <label>ID / Passport Number</label>
@@ -41,9 +44,9 @@ window.HaoKeepEnroll = {
                 <div class="form-group">
                     <label>Skills & Certifications</label>
                     <div class="checkbox-group">
-                        <label class="check-label"><input type="checkbox" value="deep_clean"> Deep Cleaning</label>
-                        <label class="check-label"><input type="checkbox" value="laundry"> Laundry & Ironing</label>
-                        <label class="check-label"><input type="checkbox" value="hotel_standard"> Hotel-Standard Turnover</label>
+                        <label class="check-label"><input type="checkbox" value="deep_clean" checked> Deep Cleaning</label>
+                        <label class="check-label"><input type="checkbox" value="laundry" checked> Laundry & Ironing</label>
+                        <label class="check-label"><input type="checkbox" value="hotel_standard" checked> Hotel-Standard Turnover</label>
                         <label class="check-label"><input type="checkbox" value="first_aid"> First Aid Certified</label>
                     </div>
                 </div>
@@ -53,44 +56,66 @@ window.HaoKeepEnroll = {
                 </div>
                 <div class="form-actions">
                     <button type="button" class="btn btn-secondary" onclick="window.HaoKeepApp.closeModal()">Cancel</button>
-                    <button type="submit" class="btn btn-primary"><i data-lucide="user-plus"></i> Enroll Housekeeper</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i data-lucide="${cleanerToEdit ? 'save' : 'user-plus'}"></i> ${cleanerToEdit ? 'Save Changes' : 'Enroll Housekeeper'}
+                    </button>
                 </div>
             </form>
         `;
 
-        window.HaoKeepApp?.showModal('Enroll New Housekeeper / Field Cleaner', content);
+        window.HaoKeepApp?.showModal(cleanerToEdit ? `Edit Housekeeper: ${cleanerToEdit.name}` : 'Enroll New Housekeeper / Field Cleaner', content);
 
         document.getElementById('form-add-cleaner')?.addEventListener('submit', (e) => {
             e.preventDefault();
             const name = document.getElementById('enr-cleaner-name').value.trim();
             const phone = document.getElementById('enr-cleaner-phone').value.trim();
             const mpesa = document.getElementById('enr-cleaner-mpesa').value.trim() || phone.replace('+', '');
-            const territory = document.getElementById('enr-cleaner-territory').value;
+            const territory = document.getElementById('enr-cleaner-territory').value.trim();
 
             if (!name || !phone) {
                 window.HaoKeepApp?.showToast('Name and Phone are required.', 'error');
                 return;
             }
 
-            const newCleaner = {
-                id: 'CLN-' + Math.floor(100 + Math.random() * 900),
-                name: name,
-                phone: phone,
-                mpesaNumber: mpesa,
-                rating: 0,
-                totalJobs: 0,
-                qualityScore: 0,
-                currentLocation: { lat: -1.2921 + (Math.random() * 0.02 - 0.01), lng: 36.7845 + (Math.random() * 0.02 - 0.01) },
-                status: 'AVAILABLE',
-                assignedTerritory: territory
-            };
+            if (cleanerToEdit) {
+                cleanerToEdit.name = name;
+                cleanerToEdit.phone = phone;
+                cleanerToEdit.mpesaNumber = mpesa;
+                cleanerToEdit.assignedTerritory = territory;
+                window.HaoKeepApp?.addAuditLog(`Housekeeper Details Updated: ${name} (${cleanerToEdit.id})`);
+                window.HaoKeepApp?.closeModal();
+                window.HaoKeepApp?.showToast(`✏️ Updated housekeeper profile for ${name}!`, 'success');
+            } else {
+                const newCleaner = {
+                    id: 'CLN-' + Math.floor(100 + Math.random() * 900),
+                    name: name,
+                    phone: phone,
+                    mpesaNumber: mpesa,
+                    rating: 5.0,
+                    totalJobs: 0,
+                    qualityScore: 100,
+                    currentLocation: { lat: -1.2921 + (Math.random() * 0.02 - 0.01), lng: 36.7845 + (Math.random() * 0.02 - 0.01) },
+                    status: 'AVAILABLE',
+                    assignedTerritory: territory
+                };
 
-            window.HaoKeepStore.cleaners.push(newCleaner);
-            window.HaoKeepApp?.addAuditLog(`New Housekeeper Enrolled: ${name} (${newCleaner.id})`);
-            window.HaoKeepApp?.closeModal();
-            window.HaoKeepApp?.showToast(`${name} enrolled successfully as Housekeeper!`, 'success');
+                window.HaoKeepStore.cleaners.push(newCleaner);
+                window.HaoKeepApp?.addAuditLog(`New Housekeeper Enrolled: ${name} (${newCleaner.id})`);
+                window.HaoKeepApp?.closeModal();
+                window.HaoKeepApp?.showToast(`🎉 ${name} enrolled successfully as Housekeeper!`, 'success');
+            }
+
             window.HaoKeepApp?.renderActiveView();
         });
+    },
+
+    showEditCleanerForm(cleanerId) {
+        const cleaner = window.HaoKeepStore.cleaners.find(c => c.id === cleanerId);
+        if (cleaner) {
+            this.showAddCleanerForm(cleaner);
+        } else {
+            window.HaoKeepApp?.showToast('Housekeeper not found.', 'error');
+        }
     },
 
     // ── Add New Property Unit ────────────────────────────────────────

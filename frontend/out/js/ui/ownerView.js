@@ -142,7 +142,9 @@ window.HaoKeepOwnerView = {
                                 </div>
                                 <div class="flex-between text-xs pt-2 border-top">
                                     <span class="text-muted">Rating: ⭐ ${cleaner.rating || '4.9'}</span>
-                                    <span class="text-success font-bold">${cleaner.totalJobs || 12} Jobs Completed</span>
+                                    <button class="btn btn-xs btn-secondary" onclick="window.HaoKeepEnroll.showEditCleanerForm('${cleaner.id}')">
+                                        <i data-lucide="edit"></i> ${isSwahili ? 'Hariri' : 'Edit'}
+                                    </button>
                                 </div>
                             </div>
                         `).join('')}
