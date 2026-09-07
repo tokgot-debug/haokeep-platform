@@ -4,7 +4,7 @@
 window.HaoKeepStore = {
     // Current Global Context
     context: {
-        persona: 'housekeeper', // housekeeper | owner | agency | finance | admin
+        persona: 'landing', // landing | housekeeper | owner | agency | finance | admin
         market: 'KE',           // KE | US | UK | NG | ZA
         currency: 'KES',        // KES | USD | EUR | GBP
         language: 'en',         // en | sw

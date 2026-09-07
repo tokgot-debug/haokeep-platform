@@ -4,6 +4,7 @@
 window.HaoKeepApp = {
     init() {
         console.log('Initializing CleanPulse (HaoKeep) Platform...');
+        window.HaoKeepAuth?.init();
         window.HaoKeepSync.loadOutboxFromLocalStorage();
         this.bindGlobalControls();
         this.updateNotifBadge();
