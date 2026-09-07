@@ -58,6 +58,38 @@ window.HaoKeepApp = {
             });
         });
 
+        // Turnover Job Logs Sidebar Tab
+        document.querySelectorAll('[data-action="turnover-logs"]').forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                store.context.persona = 'owner';
+                this.renderActiveView();
+                setTimeout(() => {
+                    document.querySelector('.card:has(.data-table)')?.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+            });
+        });
+
+        // Work Orders Sidebar Tab
+        document.querySelectorAll('[data-action="work-orders"]').forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                store.context.persona = 'owner';
+                this.renderActiveView();
+                setTimeout(() => {
+                    document.querySelectorAll('.card:has(.data-table)')[1]?.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+            });
+        });
+
+        // Admin Settings & Tools Sidebar Tab
+        document.querySelectorAll('[data-action="admin-settings"]').forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.openAdminSettingsModal();
+            });
+        });
+
         // Role Access / Sign In Dropdown
         const personaSelect = document.getElementById('persona-select');
         if (personaSelect) {
@@ -182,6 +214,64 @@ window.HaoKeepApp = {
         // Notification Center Bell Modal
         document.getElementById('notif-center-btn')?.addEventListener('click', () => {
             this.openNotificationCenterModal();
+        });
+    },
+
+    openAdminSettingsModal() {
+        const store = window.HaoKeepStore;
+        const isSwahili = store.context.language === 'sw';
+
+        const settingsHTML = `
+            <div class="p-2">
+                <div class="flex align-center gap-2 mb-3 border-b border-gray pb-2">
+                    <div style="background:#2b1e14; width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center; color:#ffffff; font-weight:bold;">
+                        <i data-lucide="settings" style="color:#dda15e;"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg text-primary" style="color:#1c140e !important;">Platform Administration & Operations Settings</h4>
+                        <p class="text-xs text-muted" style="color:#4a3c2e !important;">Configure M-Pesa B2C rails, KRA eTIMS tax keys, and iCal polling sync rates</p>
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label class="font-bold text-xs display-block mb-1" style="color:#1c140e;">M-Pesa B2C Paybill / Shortcode *</label>
+                    <input type="text" class="form-input bg-darker w-full p-2 border rounded" value="600982 (Vanbransa Disbursements)" style="color:#1c140e;">
+                </div>
+
+                <div class="form-group mb-3">
+                    <label class="font-bold text-xs display-block mb-1" style="color:#1c140e;">KRA eTIMS Tax Middleware API Key *</label>
+                    <input type="password" class="form-input bg-darker w-full p-2 border rounded" value="etims_live_sec_9942817491" style="color:#1c140e;">
+                </div>
+
+                <div class="form-group mb-3">
+                    <label class="font-bold text-xs display-block mb-1" style="color:#1c140e;">iCal Calendar Sync Refresh Rate</label>
+                    <select class="form-input bg-darker w-full p-2 border rounded" style="color:#1c140e;">
+                        <option value="5">Every 5 Minutes (Recommended for High Occupancy)</option>
+                        <option value="15">Every 15 Minutes</option>
+                        <option value="30">Every 30 Minutes</option>
+                    </select>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label class="font-bold text-xs display-block mb-1" style="color:#1c140e;">SHA-256 Audit Log Chain Encryption</label>
+                    <div class="flex-between p-2 rounded" style="background:#f8f5f0; border:1px solid rgba(92,64,46,0.2);">
+                        <span class="text-xs font-mono" style="color:#1c140e;">Status: Cryptographic Audit Hashing Active</span>
+                        <span class="badge badge-green" style="background:#1b4332; color:#fff;">ENABLED</span>
+                    </div>
+                </div>
+
+                <button id="btn-save-admin-settings" class="btn btn-primary btn-block p-3 font-bold" style="background:#2b1e14 !important; color:#ffffff !important; border: 1px solid #4a3c2e !important;">
+                    <i data-lucide="check"></i> Save Administration Settings
+                </button>
+            </div>
+        `;
+
+        this.showModal('⚙️ Administration & System Settings', settingsHTML);
+        if (window.lucide) window.lucide.createIcons();
+
+        document.getElementById('btn-save-admin-settings')?.addEventListener('click', () => {
+            this.showToast('✅ Platform administration settings saved successfully!', 'success');
+            this.closeModal();
         });
     },
 
