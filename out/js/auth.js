@@ -126,48 +126,29 @@ window.HaoKeepAuth = {
     showLoginModal(preselectPersona = 'housekeeper') {
         const isSwahili = window.HaoKeepStore?.context?.language === 'sw';
         const modalContent = `
-            <div class="p-2">
+            <div class="p-3">
                 <div class="badge badge-accent mb-2">
-                    <i data-lucide="lock flex-inline"></i> ${isSwahili ? 'Uthibitisho wa Mtumiaji' : 'Platform User Authentication'}
+                    <i data-lucide="lock flex-inline"></i> ${isSwahili ? 'Uthibitisho wa Mtumiaji' : 'Firebase Authenticated Access'}
                 </div>
                 <h3 style="font-size:1.3rem; font-weight:700; margin-bottom:4px;">
                     ${isSwahili ? 'Ingia Kwenye Vanbransa Operations OS' : 'Log In to Vanbransa Operations OS'}
                 </h3>
-                <p class="text-xs text-muted mb-3">
-                    ${isSwahili ? 'Chagua akaunti au tumia nambari yako maalum ya kuingia.' : 'Select a demo persona or sign in with your email / access code.'}
+                <p class="text-xs text-muted mb-4">
+                    ${isSwahili ? 'Ingiza barua pepe au nambari yako maalum ya kuingia.' : 'Enter your registered email address or access code and password.'}
                 </p>
 
-                <!-- Seed Credentials Quick Switch Chips -->
-                <div class="card p-2 bg-darker rounded mb-3 border">
-                    <div class="text-xxs text-primary font-bold mb-2 uppercase tracking-wider flex-between">
-                        <span>⚡ ${isSwahili ? 'Akaunti za Kuingia (Seed Credentials)' : 'Quick-Demo Seed Credentials'}</span>
-                        <span class="text-dim">1-Click Auto-Fill</span>
-                    </div>
-                    <div class="grid-2col gap-2">
-                        ${this.seededUsers.map(u => `
-                            <button type="button" class="btn btn-xs btn-secondary text-left flex items-center justify-between btn-quick-seed" data-email="${u.email}" data-pass="${u.password}">
-                                <div>
-                                    <strong class="text-xs text-primary">${u.name}</strong>
-                                    <div class="text-xxs text-dim">${u.roleTitle}</div>
-                                </div>
-                                <span class="badge badge-purple text-xxs">${u.persona}</span>
-                            </button>
-                        `).join('')}
-                    </div>
-                </div>
-
                 <form id="form-user-login">
-                    <div class="form-group mb-2">
-                        <label>${isSwahili ? 'Barua Pepe au Access Code *' : 'Email Address or Unique Access Code *'}</label>
-                        <input type="text" id="login-identifier" class="input-field" placeholder="e.g. housekeeper@vanbransa.com or VP-CLN-102934" required>
-                    </div>
-
                     <div class="form-group mb-3">
-                        <label>${isSwahili ? 'Nambari ya Siri (Password) *' : 'Password *'}</label>
-                        <input type="password" id="login-password" class="input-field" placeholder="••••••••" required>
+                        <label class="font-bold text-xs">${isSwahili ? 'Barua Pepe au Access Code *' : 'Email Address or Access Code *'}</label>
+                        <input type="text" id="login-identifier" class="input-field" placeholder="e.g. housekeeper@vanbransa.com or VP-CLN-102934" required style="background: rgba(0,0,0,0.4); border: 1px solid rgba(224,159,62,0.3); padding:10px; color:#fff; width:100%; border-radius:6px;">
                     </div>
 
-                    <button type="submit" class="btn btn-primary btn-block p-3 font-bold" style="background: linear-gradient(135deg, #e09f3e, #b88054) !important; color:#0a0806 !important;">
+                    <div class="form-group mb-4">
+                        <label class="font-bold text-xs">${isSwahili ? 'Nambari ya Siri (Password) *' : 'Password *'}</label>
+                        <input type="password" id="login-password" class="input-field" placeholder="••••••••" required style="background: rgba(0,0,0,0.4); border: 1px solid rgba(224,159,62,0.3); padding:10px; color:#fff; width:100%; border-radius:6px;">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block p-3 font-bold flex align-center justify-center gap-2" style="background: linear-gradient(135deg, #e09f3e, #b88054) !important; color:#0a0806 !important;">
                         <i data-lucide="log-in"></i> ${isSwahili ? 'Ingia Sasa' : 'Authenticate & Log In'}
                     </button>
                 </form>
@@ -175,23 +156,6 @@ window.HaoKeepAuth = {
         `;
 
         window.HaoKeepApp?.showModal(isSwahili ? 'Ingia Mfomoni' : 'User Login & Access', modalContent);
-
-        // Bind quick seed buttons
-        document.querySelectorAll('.btn-quick-seed').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const email = e.currentTarget.dataset.email;
-                const pass = e.currentTarget.dataset.pass;
-                document.getElementById('login-identifier').value = email;
-                document.getElementById('login-password').value = pass;
-            });
-        });
-
-        // Auto pre-fill with first seed user matching persona
-        const matched = this.seededUsers.find(u => u.persona === preselectPersona) || this.seededUsers[0];
-        if (matched) {
-            document.getElementById('login-identifier').value = matched.email;
-            document.getElementById('login-password').value = matched.password;
-        }
 
         // Form Submit
         document.getElementById('form-user-login')?.addEventListener('submit', (e) => {
