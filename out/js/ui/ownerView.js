@@ -14,17 +14,17 @@ window.HaoKeepOwnerView = {
                         <p class="subtitle">${isSwahili ? 'Hali halisi ya usafi wa nyumba, usawazishaji wa iCal, na uthibitisho wa picha' : 'Real-time property readiness, iCal turnovers, and inspection photo verification'}</p>
                     </div>
                     <div class="flex-gap">
-                        <button id="btn-batch-dispatch" class="btn btn-primary" style="background: linear-gradient(135deg, #e09f3e, #b88054) !important; color:#0a0806 !important;">
-                            <i data-lucide="zap"></i> ${isSwahili ? 'Tuma Wafanyakazi Nyumba Zote Chafu kwa Mbofyo 1' : '1-Click Batch Dispatch All Dirty Units'}
+                        <button id="btn-batch-dispatch" class="btn btn-primary" style="background: #2b1e14 !important; color:#ffffff !important; font-weight:700; border: 1px solid #4a3c2e !important; box-shadow: 0 4px 12px rgba(43, 30, 20, 0.15);">
+                            <i data-lucide="zap" style="color: #dda15e;"></i> ${isSwahili ? 'Tuma Wafanyakazi Nyumba Zote Chafu kwa Mbofyo 1' : '1-Click Batch Dispatch All Dirty Units'}
                         </button>
-                        <button class="btn btn-secondary" onclick="window.HaoKeepEnroll.showAddCleanerForm()">
-                            <i data-lucide="user-plus"></i> ${isSwahili ? 'Ongeza Mfanyakazi' : 'Add Housekeeper'}
+                        <button class="btn btn-secondary" onclick="window.HaoKeepEnroll.showAddCleanerForm()" style="background:#ffffff !important; color:#1c140e !important; border:1px solid rgba(92, 64, 46, 0.2) !important; font-weight:600;">
+                            <i data-lucide="user-plus" style="color: #8c5e34;"></i> ${isSwahili ? 'Ongeza Mfanyakazi' : 'Add Housekeeper'}
                         </button>
-                        <button id="btn-trigger-ical" class="btn btn-secondary">
-                            <i data-lucide="refresh-cw"></i> ${isSwahili ? 'Chukua Kalenda ya iCal' : 'Ingest iCal Feed'}
+                        <button id="btn-trigger-ical" class="btn btn-secondary" style="background:#ffffff !important; color:#1c140e !important; border:1px solid rgba(92, 64, 46, 0.2) !important; font-weight:600;">
+                            <i data-lucide="refresh-cw" style="color: #8c5e34;"></i> ${isSwahili ? 'Chukua Kalenda ya iCal' : 'Ingest iCal Feed'}
                         </button>
-                        <button class="btn btn-secondary" onclick="window.HaoKeepEnroll.showAddUnitForm()">
-                            <i data-lucide="building"></i> ${isSwahili ? 'Ongeza Nyumba' : 'Add Unit'}
+                        <button class="btn btn-secondary" onclick="window.HaoKeepEnroll.showAddUnitForm()" style="background:#ffffff !important; color:#1c140e !important; border:1px solid rgba(92, 64, 46, 0.2) !important; font-weight:600;">
+                            <i data-lucide="building" style="color: #8c5e34;"></i> ${isSwahili ? 'Ongeza Nyumba' : 'Add Unit'}
                         </button>
                     </div>
                 </div>
@@ -53,10 +53,10 @@ window.HaoKeepOwnerView = {
                             </div>
 
                             <div class="mt-3 flex-between text-xs">
-                                <button class="btn btn-xs btn-primary btn-assign-duty" data-unit="${unit.id}" data-unitname="${unit.name}" style="background: linear-gradient(135deg, #e09f3e, #b88054) !important; color:#0a0806 !important; font-weight:700;">
-                                    <i data-lucide="user-check"></i> Assign Duty
+                                <button class="btn btn-xs btn-primary btn-assign-duty" data-unit="${unit.id}" data-unitname="${unit.name}" style="background: #2b1e14 !important; color:#ffffff !important; font-weight:700; border: 1px solid #4a3c2e !important;">
+                                    <i data-lucide="user-check" style="color: #dda15e;"></i> Assign Duty
                                 </button>
-                                <a href="#" class="text-primary btn-view-photos" data-unit="${unit.id}">View Quality Photos &rarr;</a>
+                                <a href="#" class="btn-view-photos" data-unit="${unit.id}" style="color: #8c5e34; font-weight: 600; text-decoration: none;">View Quality Photos &rarr;</a>
                             </div>
                         </div>
                     `).join('')}
