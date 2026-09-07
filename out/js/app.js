@@ -64,8 +64,19 @@ window.HaoKeepApp = {
                 e.preventDefault();
                 store.context.persona = 'owner';
                 this.renderActiveView();
+
+                // Highlight active sidebar item
+                document.querySelectorAll('.app-sidebar .nav-item').forEach(el => el.classList.remove('active'));
+                item.classList.add('active');
+
                 setTimeout(() => {
-                    document.querySelector('.card:has(.data-table)')?.scrollIntoView({ behavior: 'smooth' });
+                    const el = document.getElementById('turnover-job-log-card');
+                    if (el) {
+                        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        el.style.transition = 'box-shadow 0.3s ease';
+                        el.style.box-shadow = '0 0 0 3px #8c5e34';
+                        setTimeout(() => { el.style.box-shadow = ''; }, 1800);
+                    }
                 }, 100);
             });
         });
@@ -76,8 +87,19 @@ window.HaoKeepApp = {
                 e.preventDefault();
                 store.context.persona = 'owner';
                 this.renderActiveView();
+
+                // Highlight active sidebar item
+                document.querySelectorAll('.app-sidebar .nav-item').forEach(el => el.classList.remove('active'));
+                item.classList.add('active');
+
                 setTimeout(() => {
-                    document.querySelectorAll('.card:has(.data-table)')[1]?.scrollIntoView({ behavior: 'smooth' });
+                    const el = document.getElementById('work-orders-card');
+                    if (el) {
+                        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        el.style.transition = 'box-shadow 0.3s ease';
+                        el.style.box-shadow = '0 0 0 3px #8c5e34';
+                        setTimeout(() => { el.style.box-shadow = ''; }, 1800);
+                    }
                 }, 100);
             });
         });

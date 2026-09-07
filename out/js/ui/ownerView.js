@@ -154,7 +154,7 @@ window.HaoKeepOwnerView = {
                 </div>
 
                 <!-- Recent Jobs & Inspection History Table -->
-                <div class="card mt-4">
+                <div id="turnover-job-log-card" class="card mt-4">
                     <div class="card-header">
                         <h3><i data-lucide="history"></i> Turnover Job Log & Quality Scores</h3>
                     </div>
@@ -191,7 +191,7 @@ window.HaoKeepOwnerView = {
                 </div>
 
                 <!-- Maintenance & Repair Work Orders Card -->
-                <div class="card mt-4">
+                <div id="work-orders-card" class="card mt-4">
                     <div class="card-header flex-between">
                         <h3><i data-lucide="wrench" class="text-warning"></i> Maintenance & Repair Work Orders</h3>
                         <button id="btn-create-work-order" class="btn btn-sm btn-primary">
