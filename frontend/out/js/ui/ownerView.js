@@ -136,7 +136,7 @@ window.HaoKeepOwnerView = {
                                             <span class="text-xxs font-bold" style="color: #6b5c4e;">${cleaner.assignedTerritory || 'Nairobi Central'}</span>
                                         </div>
                                     </div>
-                                    <span class="badge badge-${cleaner.status === 'AVAILABLE' ? 'green' : 'purple'}">${cleaner.status}</span>
+                                    <span class="badge badge-${cleaner.status === 'AVAILABLE' ? 'green' : 'blue'}" style="font-weight:700;">${cleaner.status}</span>
                                 </div>
                                 <div class="text-xs mb-2" style="color: #4a3c2e;">
                                     📞 <strong style="color: #1c140e;">${cleaner.phone}</strong><br>

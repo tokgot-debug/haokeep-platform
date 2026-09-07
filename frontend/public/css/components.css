@@ -49,33 +49,38 @@
 }
 
 .badge-green, .badge-clean, .badge-balanced, .badge-synced {
-    background: rgba(88, 129, 87, 0.2);
-    color: #a3b18a;
-    border: 1px solid rgba(88, 129, 87, 0.4);
+    background: #1b4332;
+    color: #ffffff;
+    border: 1px solid #2d6a4f;
+    font-weight: 700;
 }
 
 .badge-yellow, .badge-dirty, .badge-pending {
-    background: rgba(224, 159, 62, 0.2);
-    color: #e09f3e;
-    border: 1px solid rgba(224, 159, 62, 0.4);
+    background: #7f4f24;
+    color: #ffffff;
+    border: 1px solid #936639;
+    font-weight: 700;
 }
 
 .badge-blue, .badge-in-progress {
-    background: rgba(212, 163, 115, 0.2);
-    color: #dda15e;
-    border: 1px solid rgba(212, 163, 115, 0.4);
+    background: #3d2612;
+    color: #f5ebe0;
+    border: 1px solid #8c5e34;
+    font-weight: 700;
 }
 
 .badge-red, .badge-at-risk, .badge-unbalanced, .badge-failed {
-    background: rgba(158, 42, 43, 0.25);
-    color: #e63946;
-    border: 1px solid rgba(158, 42, 43, 0.4);
+    background: #6b1110;
+    color: #ffffff;
+    border: 1px solid #9e2a2b;
+    font-weight: 700;
 }
 
 .badge-purple {
-    background: rgba(199, 125, 255, 0.2);
-    color: #e0aaff;
-    border: 1px solid rgba(199, 125, 255, 0.4);
+    background: #3b1c32;
+    color: #f7d6e0;
+    border: 1px solid #6b2d5c;
+    font-weight: 700;
 }
 
 /* Buttons & Inputs */
