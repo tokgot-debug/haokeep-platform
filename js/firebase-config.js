@@ -1,8 +1,9 @@
 /**
  * Firebase App & SDK Integration Module for Vanbransa CleanPulse
- * Project: vanbransaopshub
+ * Project: vanbransa-housekeeping-pro
  */
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics.js";
 import { 
     getAuth, 
     signInWithEmailAndPassword, 
@@ -26,17 +27,24 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
 const firebaseConfig = {
-  projectId: "vanbransaopshub",
-  appId: "1:25599705055:web:2c571a39b0d86b81f34e6a",
-  storageBucket: "vanbransaopshub.firebasestorage.app",
-  apiKey: "AIzaSyBgeKoV9dY3XMSl9GcAAd5s7pEZdxaCxvk",
-  authDomain: "vanbransaopshub.firebaseapp.com",
-  messagingSenderId: "25599705055",
-  measurementId: "G-65Z0FL5KTG"
+  apiKey: "AIzaSyCHWgZ3VUa9_SscbRvw4Fa6AlKU44NTWd8",
+  authDomain: "vanbransa-housekeeping-pro.firebaseapp.com",
+  projectId: "vanbransa-housekeeping-pro",
+  storageBucket: "vanbransa-housekeeping-pro.firebasestorage.app",
+  messagingSenderId: "505255380907",
+  appId: "1:505255380907:web:aed893af94dfbb52aa74ee",
+  measurementId: "G-L9G7V14G6T"
 };
 
-// Initialize Firebase SDKs
+// Initialize Firebase App & Analytics
 const app = initializeApp(firebaseConfig);
+let analytics = null;
+try {
+    analytics = getAnalytics(app);
+} catch(e) {
+    console.warn("Analytics skipped or blocked in current environment:", e);
+}
+
 const auth = getAuth(app);
 let db = null;
 
@@ -49,6 +57,7 @@ try {
 // Export to Global Window Scope for Vanbransa Operations App
 window.CleanPulseFirebase = {
     app,
+    analytics,
     auth,
     db,
     methods: {
