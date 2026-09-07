@@ -258,14 +258,15 @@
 .dashboard-header h2 {
     font-family: 'Outfit', sans-serif;
     font-size: 1.6rem;
-    font-weight: 700;
-    color: #fcf8f2;
+    font-weight: 800;
+    color: #1c140e;
     margin-bottom: 0.25rem;
 }
 
 .dashboard-header .subtitle {
     font-size: 0.875rem;
-    color: #d4c5b5;
+    color: #4a3c2e;
+    font-weight: 600;
 }
 
 .dashboard-actions, .flex-gap {
