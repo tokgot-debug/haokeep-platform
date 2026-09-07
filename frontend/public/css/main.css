@@ -3,34 +3,34 @@
    ========================================================================== */
 
 :root {
-    /* Rich Luxury Dark Theme Palette - Espresso & Warm Amber Bronze */
-    --bg-primary: #0a0806;
-    --bg-secondary: #14100c;
-    --bg-card: rgba(28, 22, 17, 0.85);
-    --bg-card-hover: rgba(38, 30, 23, 0.95);
-    --border-color: rgba(212, 163, 115, 0.15);
-    --border-color-glow: rgba(212, 163, 115, 0.4);
+    /* Clean Enterprise Light Palette (Alabaster & Dark Espresso Accents) */
+    --bg-primary: #f8f6f0;
+    --bg-secondary: #ffffff;
+    --bg-card: #ffffff;
+    --bg-card-hover: #faf7f2;
+    --border-color: rgba(92, 64, 46, 0.12);
+    --border-color-glow: rgba(184, 128, 84, 0.3);
 
     /* Text Colors */
-    --text-main: #fcf8f2;
-    --text-muted: #d4c5b5;
-    --text-dim: #998775;
+    --text-main: #1c140e;
+    --text-muted: #6b5c4e;
+    --text-dim: #8c7b6c;
 
-    /* Luxury Bronze & Warm Gold Accents */
-    --primary: #d4a373;
-    --primary-hover: #bc8a5f;
-    --accent-teal: #a3b18a;
-    --accent-purple: #c77dff;
-    --success: #588157;
+    /* Primary Accent Palette */
+    --primary: #8c5e34;
+    --primary-hover: #6e4624;
+    --accent-teal: #2a9d8f;
+    --accent-purple: #7209b7;
+    --success: #2b9348;
     --warning: #e09f3e;
-    --danger: #9e2a2b;
-    --info: #dda15e;
+    --danger: #d90429;
+    --info: #3a86ff;
 
     /* Status Colors */
-    --status-ready: #588157;
+    --status-ready: #2b9348;
     --status-progress: #d4a373;
     --status-dirty: #e09f3e;
-    --status-risk: #9e2a2b;
+    --status-risk: #d90429;
 
     /* Typography */
     --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
@@ -39,14 +39,14 @@
 
     /* Spacing & Radii */
     --radius-sm: 8px;
-    --radius-md: 14px;
-    --radius-lg: 20px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
     --radius-full: 9999px;
 
     /* Shadows & Effects */
-    --shadow-card: 0 12px 36px -10px rgba(0, 0, 0, 0.8);
-    --shadow-glow: 0 0 24px rgba(212, 163, 115, 0.25);
-    --backdrop-glass: blur(20px) saturate(190%);
+    --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.05);
+    --shadow-glow: 0 0 16px rgba(140, 94, 52, 0.15);
+    --backdrop-glass: blur(12px) saturate(160%);
 }
 
 /* High-Contrast Outdoor Sunlight Daylight Theme Override */
@@ -93,9 +93,6 @@ body.theme-sunlight .unit-sub {
 
 body {
     background-color: var(--bg-primary);
-    background-image: 
-        radial-gradient(at 0% 0%, rgba(212, 163, 115, 0.08) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(60, 42, 28, 0.2) 0px, transparent 50%);
     color: var(--text-main);
     min-height: 100vh;
     overflow-x: hidden;
@@ -104,14 +101,14 @@ body {
 
 /* Header Navbar */
 .app-header {
-    height: 74px;
-    background: rgba(20, 16, 12, 0.9);
-    backdrop-filter: var(--backdrop-glass);
+    height: 64px;
+    background: #ffffff;
     border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 1.75rem;
+    padding: 0 1.5rem;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -187,8 +184,8 @@ body {
     display: flex;
     align-items: center;
     gap: 0.4rem;
-    background: rgba(38, 30, 23, 0.6);
-    border: 1px solid var(--border-color);
+    background: #f4f1eb;
+    border: 1px solid rgba(92, 64, 46, 0.15);
     padding: 0.35rem 0.75rem;
     border-radius: var(--radius-md);
     color: var(--text-muted);
@@ -204,8 +201,8 @@ body {
 }
 
 .select-sm option {
-    background: #14100c;
-    color: #fcf8f2;
+    background: #ffffff;
+    color: #1c140e;
 }
 
 .persona-switcher-box {
