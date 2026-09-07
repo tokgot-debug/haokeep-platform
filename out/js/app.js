@@ -83,6 +83,41 @@ window.HaoKeepApp = {
             this.renderActiveView();
         });
 
+        // Header Log In / Auth Button
+        document.getElementById('header-btn-login')?.addEventListener('click', () => {
+            const user = window.HaoKeepAuth?.currentUser;
+            if (user) {
+                // Show options modal or logout directly
+                const isSwahili = store.context.language === 'sw';
+                const content = `
+                    <div class="p-3 text-center">
+                        <div class="avatar-lg bg-primary text-dark font-bold text-xl rounded-circle mx-auto mb-2" style="width:60px; height:60px; line-height:60px; border-radius:50%; background: #e09f3e; color:#0a0806;">
+                            ${user.avatar}
+                        </div>
+                        <h3 class="font-bold text-lg mb-1">${user.name}</h3>
+                        <div class="badge badge-primary mb-2">${user.roleTitle}</div>
+                        <p class="text-xs text-dim mb-3">
+                            Email: <strong>${user.email}</strong><br>
+                            Access Code: <code class="text-accent">${user.accessCode}</code><br>
+                            Phone: <strong>${user.phone}</strong>
+                        </p>
+                        <div class="flex gap-2 justify-center">
+                            <button id="btn-user-logout-confirm" class="btn btn-danger btn-block p-2">
+                                <i data-lucide="log-out"></i> ${isSwahili ? 'Kutoka (Log Out)' : 'Sign Out / Log Out'}
+                            </button>
+                        </div>
+                    </div>
+                `;
+                this.showModal(isSwahili ? 'Akaunti Yako' : 'Logged In User Profile', content);
+                document.getElementById('btn-user-logout-confirm')?.addEventListener('click', () => {
+                    this.closeModal();
+                    window.HaoKeepAuth.logout();
+                });
+            } else {
+                window.HaoKeepAuth?.showLoginModal(store.context.persona);
+            }
+        });
+
         // Header Subscribe Button
         document.getElementById('header-btn-subscribe')?.addEventListener('click', () => {
             window.HaoKeepSubscription.openSubscriptionModal('pro');
@@ -218,6 +253,20 @@ window.HaoKeepApp = {
                 case 'admin':
                     window.HaoKeepAdminView.render(targetSurface);
                     break;
+            }
+        }
+
+        // Update Header Login Button status
+        const authBtnLabel = document.getElementById('auth-btn-label');
+        const authBtn = document.getElementById('header-btn-login');
+        if (authBtnLabel && authBtn) {
+            const user = window.HaoKeepAuth?.currentUser;
+            if (user) {
+                authBtnLabel.innerHTML = `<strong>${user.avatar}</strong> (${user.name.split(' ')[0]})`;
+                authBtn.className = 'btn btn-primary btn-sm flex align-center gap-1';
+            } else {
+                authBtnLabel.innerText = 'Log In';
+                authBtn.className = 'btn btn-secondary btn-sm flex align-center gap-1';
             }
         }
 
