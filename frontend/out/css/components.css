@@ -823,19 +823,22 @@
 .btn-icon-relative {
     position: relative;
     padding: 0.5rem;
-    background: rgba(28, 22, 17, 0.8);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-sm);
-    color: var(--text-muted);
+    background: #ffffff;
+    border: 1.5px solid #c9b097;
+    border-radius: var(--radius-full);
+    color: #1c140e;
+    font-weight: 700;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
 }
 
 .btn-icon-relative:hover {
     border-color: var(--primary);
-    color: var(--text-main);
+    background: #faf7f2;
+    color: var(--primary);
 }
 
 .notif-badge {
