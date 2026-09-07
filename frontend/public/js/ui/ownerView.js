@@ -17,6 +17,9 @@ window.HaoKeepOwnerView = {
                         <button id="btn-batch-dispatch" class="btn btn-primary" style="background: linear-gradient(135deg, #e09f3e, #b88054) !important; color:#0a0806 !important;">
                             <i data-lucide="zap"></i> ${isSwahili ? 'Tuma Wafanyakazi Nyumba Zote Chafu kwa Mbofyo 1' : '1-Click Batch Dispatch All Dirty Units'}
                         </button>
+                        <button class="btn btn-secondary" onclick="window.HaoKeepEnroll.showAddCleanerForm()">
+                            <i data-lucide="user-plus"></i> ${isSwahili ? 'Ongeza Mfanyakazi' : 'Add Housekeeper'}
+                        </button>
                         <button id="btn-trigger-ical" class="btn btn-secondary">
                             <i data-lucide="refresh-cw"></i> ${isSwahili ? 'Chukua Kalenda ya iCal' : 'Ingest iCal Feed'}
                         </button>
@@ -107,6 +110,42 @@ window.HaoKeepOwnerView = {
                                 </div>
                             `).join('')}
                         </div>
+                    </div>
+                </div>
+
+                <!-- Assigned Housekeepers & Field Cleaners Roster Card -->
+                <div class="card mt-4">
+                    <div class="card-header flex-between">
+                        <h3><i data-lucide="users" class="text-primary"></i> ${isSwahili ? 'Wafanyakazi Wako Wa Usafi (Housekeepers)' : 'Assigned Housekeepers & Staff Roster'}</h3>
+                        <button class="btn btn-sm btn-primary" onclick="window.HaoKeepEnroll.showAddCleanerForm()">
+                            <i data-lucide="user-plus"></i> ${isSwahili ? 'Ongeza Mfanyakazi Mpya' : 'Add New Housekeeper'}
+                        </button>
+                    </div>
+                    <div class="grid-3col gap-3 mt-3">
+                        ${(store.cleaners || []).map(cleaner => `
+                            <div class="card p-3 border bg-darker rounded">
+                                <div class="flex-between mb-2">
+                                    <div class="flex align-center gap-2">
+                                        <div class="avatar-sm" style="width:36px; height:36px; border-radius:50%; background:#e09f3e; color:#0a0806; font-weight:800; display:flex; align-items:center; justify-content:center;">
+                                            ${cleaner.name.split(' ').map(n => n[0]).join('')}
+                                        </div>
+                                        <div>
+                                            <strong class="text-sm text-primary display-block">${cleaner.name}</strong>
+                                            <span class="text-xxs text-muted">${cleaner.assignedTerritory || 'Nairobi Central'}</span>
+                                        </div>
+                                    </div>
+                                    <span class="badge badge-${cleaner.status === 'AVAILABLE' ? 'green' : 'purple'}">${cleaner.status}</span>
+                                </div>
+                                <div class="text-xs text-dim mb-2">
+                                    📞 <strong>${cleaner.phone}</strong><br>
+                                    💵 M-Pesa: <code>${cleaner.mpesaNumber}</code>
+                                </div>
+                                <div class="flex-between text-xs pt-2 border-top">
+                                    <span class="text-muted">Rating: ⭐ ${cleaner.rating || '4.9'}</span>
+                                    <span class="text-success font-bold">${cleaner.totalJobs || 12} Jobs Completed</span>
+                                </div>
+                            </div>
+                        `).join('')}
                     </div>
                 </div>
 
