@@ -10,7 +10,7 @@ window.HaoKeepStore = {
         language: 'en',         // en | sw
         isOnline: true,
         operatingModel: 'MODEL_A', // MODEL_A (Direct) | MODEL_B (Agency) | MODEL_C (Marketplace)
-        currentCleanerId: 'CLN-001'
+        currentCleanerId: 'CLN-003'
     },
 
     // Units / Properties

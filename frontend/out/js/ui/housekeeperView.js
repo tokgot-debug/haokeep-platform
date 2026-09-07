@@ -4,7 +4,7 @@
 window.HaoKeepHousekeeperView = {
     render(container) {
         const store = window.HaoKeepStore;
-        const activeJob = store.jobs.find(j => j.cleanerId === store.context.currentCleanerId || j.status === 'CHECKED_IN' || j.status === 'ASSIGNED');
+        const activeJob = store.jobs.find(j => j.cleanerId === store.context.currentCleanerId) || store.jobs.find(j => j.cleanerId === 'CLN-003') || store.jobs[0];
         const unit = activeJob ? store.units.find(u => u.id === activeJob.unitId) : store.units[0];
 
         if (!activeJob) {
