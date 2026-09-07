@@ -75,8 +75,8 @@ window.HaoKeepApp = {
                     if (el) {
                         el.scrollIntoView({ behavior: 'smooth', block: 'center' });
                         el.style.transition = 'box-shadow 0.3s ease';
-                        el.style.box-shadow = '0 0 0 3px #8c5e34';
-                        setTimeout(() => { el.style.box-shadow = ''; }, 1800);
+                        el.style.boxShadow = '0 0 0 3px #8c5e34';
+                        setTimeout(() => { el.style.boxShadow = ''; }, 1800);
                     }
                 }, 100);
             });
@@ -98,8 +98,8 @@ window.HaoKeepApp = {
                     if (el) {
                         el.scrollIntoView({ behavior: 'smooth', block: 'center' });
                         el.style.transition = 'box-shadow 0.3s ease';
-                        el.style.box-shadow = '0 0 0 3px #8c5e34';
-                        setTimeout(() => { el.style.box-shadow = ''; }, 1800);
+                        el.style.boxShadow = '0 0 0 3px #8c5e34';
+                        setTimeout(() => { el.style.boxShadow = ''; }, 1800);
                     }
                 }, 100);
             });

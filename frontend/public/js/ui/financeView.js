@@ -153,9 +153,6 @@ window.HaoKeepFinanceView = {
         this.renderQRCodes();
     },
 
-        this.bindEvents(container);
-        this.renderQRCodes();
-    },
 
     bindEvents(container) {
         container.querySelector('#btn-export-etims-csv')?.addEventListener('click', () => {
