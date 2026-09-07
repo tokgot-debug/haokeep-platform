@@ -256,14 +256,9 @@ window.HaoKeepOwnerView = {
                             </select>
                         </div>
 
-                        <div class="form-group mb-3">
+                        <div class="form-group mb-4">
                             <label class="font-bold text-xs">Scheduled Turnover Window</label>
                             <input type="text" id="assign-window-input" class="form-input bg-darker" value="11:00 - 15:00" placeholder="e.g. 11:00 - 15:00">
-                        </div>
-
-                        <div class="form-group mb-4">
-                            <label class="font-bold text-xs">Housekeeper Payout Rate (KES)</label>
-                            <input type="number" id="assign-payout-input" class="form-input bg-darker" value="2500">
                         </div>
 
                         <button id="btn-confirm-assign-duty" class="btn btn-primary btn-block p-3 font-bold" style="background: linear-gradient(135deg, #e09f3e, #b88054) !important; color:#0a0806 !important;">
@@ -277,7 +272,7 @@ window.HaoKeepOwnerView = {
                 document.getElementById('btn-confirm-assign-duty')?.addEventListener('click', () => {
                     const cleanerId = document.getElementById('assign-cleaner-select')?.value;
                     const cleaner = store.cleaners.find(c => c.id === cleanerId) || store.cleaners[0];
-                    const payout = parseInt(document.getElementById('assign-payout-input')?.value, 10) || 2500;
+                    const payout = 2500;
                     const windowTime = document.getElementById('assign-window-input')?.value || '11:00 - 15:00';
 
                     // Update unit status to dirty / assigned
