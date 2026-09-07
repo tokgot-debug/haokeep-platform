@@ -160,27 +160,27 @@ window.HaoKeepOwnerView = {
                     </div>
                     <table class="data-table">
                         <thead>
-                            <tr>
-                                <th>Job ID</th>
-                                <th>Unit</th>
-                                <th>Housekeeper</th>
-                                <th>Status</th>
-                                <th>Check-In</th>
-                                <th>AI Quality</th>
-                                <th>Actions</th>
+                            <tr style="background: #f4efe6;">
+                                <th style="color: #2b1e14; font-weight: 800;">Job ID</th>
+                                <th style="color: #2b1e14; font-weight: 800;">Unit</th>
+                                <th style="color: #2b1e14; font-weight: 800;">Housekeeper</th>
+                                <th style="color: #2b1e14; font-weight: 800;">Status</th>
+                                <th style="color: #2b1e14; font-weight: 800;">Check-In</th>
+                                <th style="color: #2b1e14; font-weight: 800;">AI Quality</th>
+                                <th style="color: #2b1e14; font-weight: 800;">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             ${store.jobs.map(job => `
                                 <tr>
-                                    <td class="font-mono">${job.id}</td>
-                                    <td>${job.unitName}</td>
-                                    <td>${job.cleanerName}</td>
-                                    <td><span class="badge badge-purple">${job.status}</span></td>
-                                    <td>${job.checkInTime ? job.checkInTime.substring(11, 16) : 'Pending'}</td>
-                                    <td><span class="badge badge-green">96% Passed</span></td>
+                                    <td class="font-mono font-bold" style="color: #1c140e;">${job.id}</td>
+                                    <td class="font-bold" style="color: #1c140e;">${job.unitName}</td>
+                                    <td class="font-bold" style="color: #1c140e;">${job.cleanerName}</td>
+                                    <td><span class="badge badge-purple" style="background:#6b21a8; color:#ffffff; font-weight:bold;">${job.status}</span></td>
+                                    <td class="font-bold" style="color: #1c140e;">${job.checkInTime ? job.checkInTime.substring(11, 16) : '11:15'}</td>
+                                    <td><span class="badge badge-green" style="background:#2d6a4f; color:#ffffff; font-weight:bold;">96% PASSED</span></td>
                                     <td>
-                                        <button class="btn btn-sm btn-secondary btn-chat-job" data-job="${job.id}">
+                                        <button class="btn btn-sm btn-secondary btn-chat-job" data-job="${job.id}" style="background:#3a2e2b; color:#ffffff; font-weight:700;">
                                             <i data-lucide="message-square"></i> Chat & Voice Notes (${(store.messages || []).length})
                                         </button>
                                     </td>
@@ -200,26 +200,26 @@ window.HaoKeepOwnerView = {
                     </div>
                     <table class="data-table">
                         <thead>
-                            <tr>
-                                <th>WO ID</th>
-                                <th>Unit</th>
-                                <th>Issue / Title</th>
-                                <th>Severity</th>
-                                <th>Assigned Handyman</th>
-                                <th>Est. Cost</th>
-                                <th>Status</th>
+                            <tr style="background: #f4efe6;">
+                                <th style="color: #2b1e14; font-weight: 800;">WO ID</th>
+                                <th style="color: #2b1e14; font-weight: 800;">Unit</th>
+                                <th style="color: #2b1e14; font-weight: 800;">Issue / Title</th>
+                                <th style="color: #2b1e14; font-weight: 800;">Severity</th>
+                                <th style="color: #2b1e14; font-weight: 800;">Assigned Handyman</th>
+                                <th style="color: #2b1e14; font-weight: 800;">Est. Cost</th>
+                                <th style="color: #2b1e14; font-weight: 800;">Status</th>
                             </tr>
                         </thead>
                         <tbody>
                             ${(store.workOrders || []).map(wo => `
                                 <tr>
-                                    <td class="font-mono text-xs">${wo.id}</td>
-                                    <td>${wo.unitName}</td>
-                                    <td><strong>${wo.title}</strong></td>
-                                    <td><span class="badge badge-${wo.severity === 'URGENT' ? 'red' : 'yellow'}">${wo.severity}</span></td>
-                                    <td><span class="text-primary">${wo.assignedHandyman}</span></td>
-                                    <td class="font-mono font-bold">${window.HaoKeepLedger.formatMoney(wo.estimatedCost)}</td>
-                                    <td><span class="badge badge-${wo.status === 'REPAIRED' ? 'green' : 'blue'}">${wo.status}</span></td>
+                                    <td class="font-mono font-bold" style="color: #1c140e;">${wo.id}</td>
+                                    <td class="font-bold" style="color: #1c140e;">${wo.unitName}</td>
+                                    <td class="font-bold" style="color: #1c140e;">${wo.title}</td>
+                                    <td><span class="badge badge-${wo.severity === 'URGENT' ? 'red' : 'yellow'}" style="font-weight:bold;">${wo.severity}</span></td>
+                                    <td class="font-bold" style="color: #1c140e;">${wo.assignedHandyman}</td>
+                                    <td class="font-mono font-bold" style="color: #1c140e;">${window.HaoKeepLedger.formatMoney(wo.estimatedCost)}</td>
+                                    <td><span class="badge badge-${wo.status === 'REPAIRED' ? 'green' : 'blue'}" style="font-weight:bold;">${wo.status}</span></td>
                                 </tr>
                             `).join('')}
                         </tbody>

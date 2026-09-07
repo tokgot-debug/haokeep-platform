@@ -418,25 +418,26 @@
 
 .table th, .data-table th {
     font-family: 'Outfit', sans-serif;
-    color: #d4a373;
-    font-weight: 600;
+    color: #4a3c2e;
+    font-weight: 700;
     text-transform: uppercase;
     font-size: 0.75rem;
     letter-spacing: 0.05em;
     padding: 0.85rem 1rem;
-    border-bottom: 1px solid rgba(212, 163, 115, 0.15);
-    background: rgba(212, 163, 115, 0.05);
+    border-bottom: 2px solid rgba(92, 64, 46, 0.15);
+    background: #f8f5f0;
 }
 
 .table td, .data-table td {
     padding: 0.85rem 1rem;
-    border-bottom: 1px solid rgba(212, 163, 115, 0.08);
-    color: #fcf8f2;
+    border-bottom: 1px solid rgba(92, 64, 46, 0.1);
+    color: #1c140e;
+    font-weight: 500;
     vertical-align: middle;
 }
 
 .table tr:hover td, .data-table tr:hover td {
-    background: rgba(212, 163, 115, 0.04);
+    background: rgba(92, 64, 46, 0.04);
 }
 
 .btn-xs {
