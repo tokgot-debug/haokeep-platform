@@ -48,16 +48,20 @@ window.HaoKeepHousekeeperView = {
             return map[instructions] || instructions;
         };
 
+        // Get assigned active cleaner
+        const activeCleaner = store.cleaners.find(c => c.id === activeJob.cleanerId) || store.cleaners.find(c => c.id === 'CLN-003') || store.cleaners[0];
+        const avatarInitials = activeCleaner.name.split(' ').map(n => n[0]).join('');
+
         container.innerHTML = `
             <div class="mobile-frame-container">
                 <div class="mobile-shell">
                     <!-- Field Mobile Top Bar -->
                     <div class="mobile-header">
                         <div class="cleaner-info">
-                            <div class="avatar-sm">AM</div>
+                            <div class="avatar-sm">${avatarInitials}</div>
                             <div>
-                                <div class="font-bold">Achieng Mary</div>
-                                <div class="text-xs text-muted">⭐ 4.9 (142 ${isSwahili ? 'Kazi' : 'Jobs'})</div>
+                                <div class="font-bold">${activeCleaner.name}</div>
+                                <div class="text-xs text-muted">⭐ ${activeCleaner.rating || 5.0} (${activeCleaner.totalJobs || 34} ${isSwahili ? 'Kazi' : 'Jobs'})</div>
                             </div>
                         </div>
                         <div class="flex-gap">
